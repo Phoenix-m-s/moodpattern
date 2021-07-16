@@ -16,6 +16,7 @@ class topic_scores extends Model
      *
      * @var array
      */
+    public $timestamps = false;
     protected $fillable = [
         "user_topics_id", "approach", "sensor_words_id", "score"
     ];
