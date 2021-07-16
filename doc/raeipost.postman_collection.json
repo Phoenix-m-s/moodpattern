@@ -1,0 +1,164 @@
+{
+	"id": "46060b75-32f4-6623-12fd-f9e91e683ddb",
+	"name": "raeipost",
+	"description": "",
+	"order": [
+		"2e987012-5b8e-c939-5ff1-c22a19848d30",
+		"9e8135dd-afc3-7206-9043-e21477be4fae",
+		"b0194b2d-df08-47f2-3a9a-b8a682fe723b",
+		"92587e2c-73b2-e73f-bbc5-cab2ae1ae2f5"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1626461384294,
+	"owner": 0,
+	"public": false,
+	"requests": [
+		{
+			"id": "2e987012-5b8e-c939-5ff1-c22a19848d30",
+			"headers": "",
+			"headerData": [],
+			"url": "http://127.0.0.1:8000/api/topic_scores\n",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "46060b75-32f4-6623-12fd-f9e91e683ddb",
+			"data": null,
+			"dataMode": "params",
+			"name": "http://127.0.0.1:8000/api/topic_scores\n",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1626461555427,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "92587e2c-73b2-e73f-bbc5-cab2ae1ae2f5",
+			"headers": "",
+			"headerData": [],
+			"url": "http://127.0.0.1:8000/api/topic_scores/2",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "DELETE",
+			"collectionId": "46060b75-32f4-6623-12fd-f9e91e683ddb",
+			"data": null,
+			"dataMode": "params",
+			"name": "http://127.0.0.1:8000/api/topic_scores/2",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1626465581113,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "9e8135dd-afc3-7206-9043-e21477be4fae",
+			"headers": "",
+			"headerData": [],
+			"url": "http://127.0.0.1:8000/api/topic_scores",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [
+				{
+					"key": "user_topics_id",
+					"value": "1",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "approach",
+					"value": "2",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "sensor_words_id",
+					"value": "444",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "score",
+					"value": "4",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1626463048907,
+			"name": "http://127.0.0.1:8000/api/topic_scores",
+			"description": "",
+			"collectionId": "46060b75-32f4-6623-12fd-f9e91e683ddb",
+			"responses": []
+		},
+		{
+			"id": "b0194b2d-df08-47f2-3a9a-b8a682fe723b",
+			"headers": "",
+			"headerData": [],
+			"url": "http://127.0.0.1:8000/api/topic_scores/2",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "PATCH",
+			"data": [
+				{
+					"key": "user_topics_id",
+					"value": "1",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "approach",
+					"value": "7",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "sensor_words_id",
+					"value": "8",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "score",
+					"value": "55",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1626465439361,
+			"name": "http://127.0.0.1:8000/api/topic_scores/2",
+			"description": "",
+			"collectionId": "46060b75-32f4-6623-12fd-f9e91e683ddb",
+			"responses": []
+		}
+	]
+}
