@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\RegisterController;
+use App\Http\Controllers\API\topic_scoresController;
 use App\Http\Controllers\API\UserTopicsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -15,12 +16,12 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::middleware(['auth'])->group(function () {
+/*Route::middleware(['auth'])->group(function () {
 
 
 
 
-});
+});*/
 
 
 // routes that require user to be authenticated
@@ -32,7 +33,7 @@ Route::post('login', [RegisterController::class, 'login']);
 
 //Route::middleware('CheckToken')->get('/test', 'PhpTestController@index');
 
-
+//sakhamanesh
 Route::get('/usertopics', [UserTopicsController::class, 'index']);
 
 Route::get('/usertopics/{id}', [UserTopicsController::class, 'show']);
@@ -43,4 +44,5 @@ Route::put('/usertopics/{id}', [UserTopicsController::class, 'update']);
 
 Route::delete('/usertopics/{id}', [UserTopicsController::class, 'destroy']);
 
-
+//raei
+Route::resource('topic_scores', topic_scoresController::class);
