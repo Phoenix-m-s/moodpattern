@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Models\topic_scores;
 use App\Http\Resources\topic_scores as topic_scoresResource;
 use Illuminate\Support\Facades\Validator;
-
 class topic_scoresController extends BaseController
 {
     /**
@@ -64,7 +63,8 @@ class topic_scoresController extends BaseController
    
         return $this->sendResponse(new topic_scoresResource($topic_scores), 'Score retrieved successfully.');
     }
-    
+
+
     /**
      * Update the specified resource in storage.
      *
@@ -75,27 +75,27 @@ class topic_scoresController extends BaseController
     public function update(Request $request, topic_scores $topic_scores)
     {
         $input = $request->all();
-   
+
         $validator = Validator::make($input, [
             'user_topics_id' => 'required',
             'approach' => 'required',
             'sensor_words_id' => 'required',
             'score' => 'required'
         ]);
-   
+
         if($validator->fails()){
-            return $this->sendError('Validation Error.', $validator->errors());       
+            return $this->sendError('Validation Error.', $validator->errors());
         }
-   
+
         $topic_scores->user_topics_id = $input['user_topics_id'];
         $topic_scores->approach = $input['approach'];
         $topic_scores->sensor_words_id = $input['sensor_words_id'];
         $topic_scores->score = $input['score'];
         $topic_scores->save();
-   
+
         return $this->sendResponse(new topic_scoresResource($topic_scores), 'Score updated successfully.');
     }
-   
+
     /**
      * Remove the specified resource from storage.
      *
