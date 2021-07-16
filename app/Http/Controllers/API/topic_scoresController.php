@@ -1,13 +1,12 @@
 <?php
    
 namespace App\Http\Controllers\API;
-   
+
 use Illuminate\Http\Request;
-use App\Http\Controllers\API\BaseController as BaseController;
 use App\Models\topic_scores;
-use Validator;
 use App\Http\Resources\topic_scores as topic_scoresResource;
-   
+use Illuminate\Support\Facades\Validator;
+
 class topic_scoresController extends BaseController
 {
     /**
