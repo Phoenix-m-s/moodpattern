@@ -2,12 +2,51 @@
    
 namespace App\Http\Controllers\API;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\topic_scores;
 use App\Http\Resources\topic_scores as topic_scoresResource;
 use Illuminate\Support\Facades\Validator;
-class topic_scoresController extends BaseController
+class topic_scoresController extends Controller
 {
+    /**
+     * success response method.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function sendResponse($result, $message)
+    {
+        $response = [
+            'success' => true,
+            'data'    => $result,
+            'message' => $message,
+        ];
+
+
+        return response()->json($response, 200);
+    }
+
+
+    /**
+     * return error response.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function sendError($error, $errorMessages = [], $code = 404)
+    {
+        $response = [
+            'success' => false,
+            'message' => $error,
+        ];
+
+
+        if(!empty($errorMessages)){
+            $response['data'] = $errorMessages;
+        }
+
+
+        return response()->json($response, $code);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -72,10 +111,10 @@ class topic_scoresController extends BaseController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, topic_scores $topic_scores)
+    public function update(Request $request,$id)
     {
         $input = $request->all();
-
+        $topic_scores= topic_scores::findOrFail($id);
         $validator = Validator::make($input, [
             'user_topics_id' => 'required',
             'approach' => 'required',
@@ -87,6 +126,7 @@ class topic_scoresController extends BaseController
             return $this->sendError('Validation Error.', $validator->errors());
         }
 
+        $topic_scores->id =$id ;
         $topic_scores->user_topics_id = $input['user_topics_id'];
         $topic_scores->approach = $input['approach'];
         $topic_scores->sensor_words_id = $input['sensor_words_id'];
@@ -102,8 +142,10 @@ class topic_scoresController extends BaseController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(topic_scores $topic_scores)
+    public function destroy(Request $request,topic_scores $topic_scores)
     {
+        $topic_scores=topic_scores::findOrFail($request->id);
+
         $topic_scores->delete();
    
         return $this->sendResponse([], 'Score deleted successfully.');
