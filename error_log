@@ -1,0 +1,29 @@
+[28-Nov-2019 23:15:52 Asia/Tehran] PHP Fatal error:  Call to a member function save() on array in /home/moodpatt/public_html/component/index/controller/indexcontroller.php on line 131
+[05-Dec-2019 21:40:18 Asia/Tehran] PHP Parse error:  syntax error, unexpected '$address' (T_VARIABLE), expecting ',' or ';' in /home/moodpatt/public_html/common/PHPMailer-master/class.phpmailer.php on line 1070
+[05-Dec-2019 21:40:35 Asia/Tehran] PHP Parse error:  syntax error, unexpected '$address' (T_VARIABLE), expecting ',' or ';' in /home/moodpatt/public_html/common/PHPMailer-master/class.phpmailer.php on line 1070
+[29-Dec-2019 18:49:26 Asia/Tehran] PHP Parse error:  syntax error, unexpected '}' in /home/moodpatt/public_html/templates/template_fa/chart_new.php on line 808
+[29-Dec-2019 18:50:20 Asia/Tehran] PHP Parse error:  syntax error, unexpected '}' in /home/moodpatt/public_html/templates/template_fa/chart_new.php on line 808
+[29-Dec-2019 18:58:14 Asia/Tehran] PHP Parse error:  syntax error, unexpected '}' in /home/moodpatt/public_html/templates/template_fa/chart_new.php on line 815
+[19-Jan-2020 18:38:19 UTC] PHP Fatal error:  Call to a member function exec() on null in /home/moodpatt/public_html/common/init.inc.php on line 9
+[19-Jan-2020 18:43:39 UTC] PHP Fatal error:  Call to a member function exec() on null in /home/moodpatt/public_html/common/init.inc.php on line 9
+[19-Jan-2020 18:45:15 UTC] PHP Fatal error:  Call to a member function exec() on null in /home/moodpatt/public_html/common/init.inc.php on line 9
+[19-Jan-2020 18:45:30 UTC] PHP Fatal error:  Call to a member function exec() on null in /home/moodpatt/public_html/common/init.inc.php on line 9
+[05-Mar-2020 16:09:39 Asia/Tehran] PHP Fatal error:  Call to a member function exec() on null in /home/moodpatt/public_html/common/init.inc.php on line 9
+[05-Mar-2020 16:09:39 Asia/Tehran] PHP Fatal error:  Call to a member function exec() on null in /home/moodpatt/public_html/common/init.inc.php on line 9
+[05-Mar-2020 16:09:39 Asia/Tehran] PHP Fatal error:  Call to a member function exec() on null in /home/moodpatt/public_html/common/init.inc.php on line 9
+[05-Mar-2020 16:09:40 Asia/Tehran] PHP Fatal error:  Call to a member function exec() on null in /home/moodpatt/public_html/common/init.inc.php on line 9
+[11-Mar-2020 15:11:00 Asia/Tehran] PHP Fatal error:  Call to a member function exec() on null in /home/moodpatt/public_html/common/init.inc.php on line 9
+[11-Mar-2020 15:11:04 Asia/Tehran] PHP Fatal error:  Call to a member function exec() on null in /home/moodpatt/public_html/common/init.inc.php on line 9
+[14-Mar-2020 08:43:23 Asia/Tehran] PHP Fatal error:  Call to a member function exec() on null in /home/moodpatt/public_html/common/init.inc.php on line 9
+[14-Mar-2020 08:43:24 Asia/Tehran] PHP Fatal error:  Call to a member function exec() on null in /home/moodpatt/public_html/common/init.inc.php on line 9
+[14-Mar-2020 08:43:24 Asia/Tehran] PHP Fatal error:  Call to a member function exec() on null in /home/moodpatt/public_html/common/init.inc.php on line 9
+[16-Mar-2020 16:09:11 Asia/Tehran] PHP Fatal error:  Call to a member function exec() on null in /home/moodpatt/public_html/common/init.inc.php on line 9
+[16-Mar-2020 16:09:12 Asia/Tehran] PHP Fatal error:  Call to a member function exec() on null in /home/moodpatt/public_html/common/init.inc.php on line 9
+[14-Jan-2021 12:53:23 Asia/Tehran] PHP Fatal error:  Uncaught exception 'PDOException' with message 'There is no active transaction' in /home/moodpatt/public_html/common/chainquerybuilder.class.php:76
+Stack trace:
+#0 /home/moodpatt/public_html/common/chainquerybuilder.class.php(76): PDO->commit()
+#1 /home/moodpatt/public_html/component/motivation/controller/motivationcontroller.php(280): DB::commit()
+#2 /home/moodpatt/public_html/component/motivation/motivation.php(26): motivationcontroller->update(Array)
+#3 /home/moodpatt/public_html/index.php(30): include_once('/home/moodpatt/...')
+#4 {main}
+  thrown in /home/moodpatt/public_html/common/chainquerybuilder.class.php on line 76

@@ -1,0 +1,174 @@
+@font-face {
+    font-family: 'IRANSansX';
+    font-style: normal;
+    font-weight: 400;
+    src: local('IRANSansX'), url('../fonts/IRANSansXRegular.woff') format('woff');
+}
+@font-face {
+    font-family: 'IRANSansX';
+    font-style: normal;
+    font-weight: 100;
+    src: local('IRANSansX'), url('../fonts/IRANSansXThin.woff') format('woff');
+}
+@font-face {
+    font-family: 'IRANSansX';
+    font-style: normal;
+    font-weight: 200;
+    src: local('IRANSansX'), url('../fonts/IRANSansXUltraLight.woff') format('woff');
+}
+@font-face {
+    font-family: 'IRANSansX';
+    font-style: normal;
+    font-weight: 300;
+    src: local('IRANSansX'), url('../fonts/IRANSansXLight.woff') format('woff');
+}
+@font-face {
+    font-family: 'IRANSansX';
+    font-style: normal;
+    font-weight: 500;
+    src: local('IRANSansX'), url('../fonts/IRANSansXMedium.woff') format('woff');
+}
+@font-face {
+    font-family: 'IRANSansX';
+    font-style: normal;
+    font-weight: 600;
+    src: local('IRANSansX'), url('../fonts/IRANSansXDemiBold.woff') format('woff');
+}
+@font-face {
+    font-family: 'IRANSansX';
+    font-style: normal;
+    font-weight: 700;
+    src: local('IRANSansX'), url('../fonts/IRANSansXBold.woff') format('woff');
+}
+@font-face {
+    font-family: 'IRANSansX';
+    font-style: normal;
+    font-weight: 800;
+    src: local('IRANSansX'), url('../fonts/IRANSansXExtraBold.woff') format('woff');
+}
+@font-face {
+    font-family: 'IRANSansX';
+    font-style: normal;
+    font-weight: 900;
+    src: local('IRANSansX'), url('../fonts/IRANSansXBlack.woff') format('woff');
+}
+body{
+    font-family: IRANSansX, Tahoma, serif;
+    font-size: 16px;
+}
+.header{
+    width: 100%;
+    height: 54px;
+    flex-shrink: 0;
+    background: #FFF;
+    box-shadow: 0 4px 27px 0 rgba(0, 85, 151, 0.28);
+    z-index: 1;
+}
+.navbar-nav {
+    font-size: 12px; /* اندازه فونت برای آیتم‌های منو */
+}
+.search-container {
+    position: relative;
+}
+
+.search-input {
+    position: relative;
+}
+
+.search-input .form-control {
+    padding-left: 30px; /* اضافه کردن فضای کافی برای آیکون داخلی */
+}
+
+.search-input .SearchInput__icon {
+    position: absolute;
+    top: 50%; /* جابجایی عمودی به وسیله ترتیب به وسط */
+    left: 10px; /* فاصله از سمت راست */
+    transform: translateY(-50%); /* تنظیم جابجایی عمودی */
+}
+
+.sliderBox{
+    width: 100%;
+    height: 400px;
+    flex-shrink: 0;
+    border-radius: 61px;
+    background: #F2FAF9;
+    z-index: 0;
+}
+.sliderBoxRight{
+    width: 60%;
+    height:200px;
+    flex-shrink: 0;
+    fill: #FFF;
+    filter: drop-shadow(0px 7px 9px #D7E8F2);
+    border:1px solid #000;
+    float: right;
+
+
+}
+.info{
+    width:100%;
+    height: 54px;
+    flex-shrink: 0;
+    border-radius:65px;
+    background: #FFF;
+    box-shadow: 2px 4px 25px 0px rgba(94, 219, 169, 0.38);
+}
+.infoBtn{
+    padding: 20px;
+}
+.loginFrm
+{
+    width: 100%;
+    height: 400px;
+    float: right;
+    flex-shrink: 0;
+    background-color:#05BF8D;
+    border-radius: 40px;
+}
+
+.box2-RightSlider-img{
+     position: relative;
+     width:700px;
+     height:360px;
+     font-size:12px !important;
+     background:url('../images/Rectangle1797.png');
+     z-index:4;
+
+ }
+.box2-leftSlider-img{
+    position: absolute;
+    left:10%;
+    height: 450px;
+    z-index:5;
+}
+
+.box2-l-img{
+    position: absolute;
+    left:14%;
+    height: 450px;
+    z-index:5;
+}
+.box3{
+    width:100%;
+    height: 90px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    background: linear-gradient(180deg, #49DA93 0%, #01BC8D 100%);
+}
+.cardMargintop{
+    margin-top:-85px !important;
+}
+.footer{
+    width: 100%;
+    height: 300px;
+    flex-shrink: 0;
+    fill: #05BF8D;
+    margin-top: 105px;
+    background-color:#05BF8D;
+}
+.copyRight{
+    width: 100%;
+    height: 25px;
+    flex-shrink: 0;
+    background: #263238;
+}

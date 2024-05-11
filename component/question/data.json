@@ -1,0 +1,971 @@
+{
+  "quiz_no": 1,
+  "max_rate": 13,
+  "steps": [
+    {
+      "step": 1,
+      "step_title": "1- دوست من ، به من بگو وقتی این کار رو انجام میدی:",
+      "sections": [
+        {
+          "section": 1,
+          "value_by": "by select",
+          "title": "سوال اول؟",
+          "rate_detail": [
+            {
+              "title": "امتیاز دهی ۱",
+              "options": [
+                {
+                  "title": "خیلی زیاد",
+                  "value": 4
+                },
+                {
+                  "title": "زیاد",
+                  "value": 3
+                },
+                {
+                  "title": "بدون نظر",
+                  "value": 0
+                },
+                {
+                  "title": "متوسط",
+                  "value": 2
+                },
+                {
+                  "title": "کم",
+                  "value": 1
+                }
+              ],
+              "selected": ""
+            },
+            {
+              "title": "امتیاز دهی ۲",
+              "options": [
+                {
+                  "title": "خیلی زیاد",
+                  "value": 4
+                },
+                {
+                  "title": "زیاد",
+                  "value": 3
+                },
+                {
+                  "title": "بدون نظر",
+                  "value": 0
+                },
+                {
+                  "title": "متوسط",
+                  "value": 2
+                },
+                {
+                  "title": "کم",
+                  "value": 1
+                }
+              ],
+              "selected":  3
+            },
+            {
+              "title": "متیاز دهی ۳",
+              "options": [
+                {
+                  "title": "خیلی زیاد",
+                  "value": 4
+                },
+                {
+                  "title": "زیاد",
+                  "value": 3
+                },
+                {
+                  "title": "بدون نظر",
+                  "value": 0
+                },
+                {
+                  "title": "متوسط",
+                  "value": 2
+                },
+                {
+                  "title": "کم",
+                  "value": 1
+                }
+              ],
+              "selected":  3
+            }
+          ],
+          "passage": [
+            {
+              "icon": "<i class='fa fa-home'></i>",
+              "text": "این بخش اول متن"
+            },
+            {
+              "text": "این بخش دوم متن"
+            },
+            {
+              "text": "این بخش سوم متن"
+            }
+          ]
+        },
+        {
+          "section": 2,
+          "value_by": "by value",
+          "title": "سوال دوم؟",
+          "rate_detail": [
+            {
+              "title": "امتیاز دهی ۱",
+              "options": [
+                {
+                  "title": "خیلی زیاد",
+                  "value": 4
+                },
+                {
+                  "title": "زیاد",
+                  "value": 3
+                },
+                {
+                  "title": "بدون نظر",
+                  "value": 0
+                },
+                {
+                  "title": "متوسط",
+                  "value": 2
+                },
+                {
+                  "title": "کم",
+                  "value": 1
+                }
+              ],
+              "selected":  3
+            },
+            {
+              "title": "امتیاز دهی ۲",
+              "options": [
+                {
+                  "title": "خیلی زیاد",
+                  "value": 4
+                },
+                {
+                  "title": "زیاد",
+                  "value": 3
+                },
+                {
+                  "title": "بدون نظر",
+                  "value": 0
+                },
+                {
+                  "title": "متوسط",
+                  "value": 2
+                },
+                {
+                  "title": "کم",
+                  "value": 1
+                }
+              ],
+              "selected":  3
+            }
+          ],
+          "passage": [
+            {
+              "text": "این بخش اول متن"
+            },
+            {
+              "text": "این بخش دوم متن"
+            },
+            {
+              "text": "این بخش سوم متن"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "step": 2,
+      "step_title": "2- دوست من ، به من بگو وقتی این کار رو انجام میدی:",
+      "sections": [
+        {
+          "section": 1,
+          "value_by": "by select",
+          "title": "سوال سوم؟",
+          "rate_detail": [
+            {
+              "title": "امتیاز دهی ۱",
+              "options": [
+                {
+                  "title": "خیلی زیاد",
+                  "value": 4
+                },
+                {
+                  "title": "زیاد",
+                  "value": 3
+                },
+                {
+                  "title": "بدون نظر",
+                  "value": 0
+                },
+                {
+                  "title": "متوسط",
+                  "value": 2
+                },
+                {
+                  "title": "کم",
+                  "value": 1
+                }
+              ],
+              "selected":  3
+            },
+            {
+              "title": "امتیاز دهی ۲",
+              "options": [
+                {
+                  "title": "خیلی زیاد",
+                  "value": 4
+                },
+                {
+                  "title": "زیاد",
+                  "value": 3
+                },
+                {
+                  "title": "بدون نظر",
+                  "value": 0
+                },
+                {
+                  "title": "متوسط",
+                  "value": 2
+                },
+                {
+                  "title": "کم",
+                  "value": 1
+                }
+              ],
+              "selected":  3
+            },
+            {
+              "title": "متیاز دهی ۳",
+              "options": [
+                {
+                  "title": "خیلی زیاد",
+                  "value": 4
+                },
+                {
+                  "title": "زیاد",
+                  "value": 3
+                },
+                {
+                  "title": "بدون نظر",
+                  "value": 0
+                },
+                {
+                  "title": "متوسط",
+                  "value": 2
+                },
+                {
+                  "title": "کم",
+                  "value": 1
+                }
+              ],
+              "selected":  3
+            },
+            {
+              "title": "امتیاز دهی ۴",
+              "options": [
+                {
+                  "title": "خیلی زیاد",
+                  "value": 4
+                },
+                {
+                  "title": "زیاد",
+                  "value": 3
+                },
+                {
+                  "title": "بدون نظر",
+                  "value": 0
+                },
+                {
+                  "title": "متوسط",
+                  "value": 2
+                },
+                {
+                  "title": "کم",
+                  "value": 1
+                }
+              ],
+              "selected":  3
+            },
+            {
+              "title": "متیاز دهی ۵",
+              "options": [
+                {
+                  "title": "خیلی زیاد",
+                  "value": 4
+                },
+                {
+                  "title": "زیاد",
+                  "value": 3
+                },
+                {
+                  "title": "بدون نظر",
+                  "value": 0
+                },
+                {
+                  "title": "متوسط",
+                  "value": 2
+                },
+                {
+                  "title": "کم",
+                  "value": 1
+                }
+              ],
+              "selected":  3
+            }
+          ],
+          "passage": [
+            {
+              "text": "این بخش اول متن"
+            },
+            {
+              "text": "این بخش دوم متن"
+            },
+            {
+              "text": "این بخش سوم متن"
+            }
+          ]
+        },
+        {
+          "section": 2,
+          "value_by": "by value",
+          "title": "سوال چهارم؟",
+          "rate_detail": [
+            {
+              "title": "امتیاز دهی ۱",
+              "options": [
+                {
+                  "title": "خیلی زیاد",
+                  "value": 4
+                },
+                {
+                  "title": "زیاد",
+                  "value": 3
+                },
+                {
+                  "title": "بدون نظر",
+                  "value": 0
+                },
+                {
+                  "title": "متوسط",
+                  "value": 2
+                },
+                {
+                  "title": "کم",
+                  "value": 1
+                }
+              ],
+              "selected":  3
+            }
+          ],
+          "passage": [
+            {
+              "text": "این بخش اول متن"
+            },
+            {
+              "text": "این بخش دوم متن"
+            },
+            {
+              "text": "این بخش سوم متن"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "step": 3,
+      "step_title": "3- دوست من ، به من بگو وقتی این کار رو انجام میدی:",
+      "sections": [
+        {
+          "section": 1,
+          "value_by": "by select",
+          "title": "سوال پنجم؟",
+          "rate_detail": [
+            {
+              "title": "امتیاز دهی ۱",
+              "options": [
+                {
+                  "title": "خیلی زیاد",
+                  "value": 4
+                },
+                {
+                  "title": "زیاد",
+                  "value": 3
+                },
+                {
+                  "title": "بدون نظر",
+                  "value": 0
+                },
+                {
+                  "title": "متوسط",
+                  "value": 2
+                },
+                {
+                  "title": "کم",
+                  "value": 1
+                }
+              ],
+              "selected":  3
+            },
+            {
+              "title": "امتیاز دهی ۲",
+              "options": [
+                {
+                  "title": "خیلی زیاد",
+                  "value": 4
+                },
+                {
+                  "title": "زیاد",
+                  "value": 3
+                },
+                {
+                  "title": "بدون نظر",
+                  "value": 0
+                },
+                {
+                  "title": "متوسط",
+                  "value": 2
+                },
+                {
+                  "title": "کم",
+                  "value": 1
+                }
+              ],
+              "selected":  3
+            },
+            {
+              "title": "متیاز دهی ۳",
+              "options": [
+                {
+                  "title": "خیلی زیاد",
+                  "value": 4
+                },
+                {
+                  "title": "زیاد",
+                  "value": 3
+                },
+                {
+                  "title": "بدون نظر",
+                  "value": 0
+                },
+                {
+                  "title": "متوسط",
+                  "value": 2
+                },
+                {
+                  "title": "کم",
+                  "value": 1
+                }
+              ],
+              "selected":  3
+            }
+          ],
+          "passage": [
+            {
+              "text": "این بخش اول متن"
+            },
+            {
+              "text": "این بخش دوم متن"
+            },
+            {
+              "text": "این بخش سوم متن"
+            }
+          ]
+        },
+        {
+          "section": 2,
+          "value_by": "by value",
+          "title": "سوال شش؟",
+          "rate_detail": [
+            {
+              "title": "امتیاز دهی ۱",
+              "options": [
+                {
+                  "title": "خیلی زیاد",
+                  "value": 4
+                },
+                {
+                  "title": "زیاد",
+                  "value": 3
+                },
+                {
+                  "title": "بدون نظر",
+                  "value": 0
+                },
+                {
+                  "title": "متوسط",
+                  "value": 2
+                },
+                {
+                  "title": "کم",
+                  "value": 1
+                }
+              ],
+              "selected":  3
+            },
+            {
+              "title": "امتیاز دهی ۲",
+              "options": [
+                {
+                  "title": "خیلی زیاد",
+                  "value": 4
+                },
+                {
+                  "title": "زیاد",
+                  "value": 3
+                },
+                {
+                  "title": "بدون نظر",
+                  "value": 0
+                },
+                {
+                  "title": "متوسط",
+                  "value": 2
+                },
+                {
+                  "title": "کم",
+                  "value": 1
+                }
+              ],
+              "selected":  3
+            },
+            {
+              "title": "متیاز دهی ۳",
+              "options": [
+                {
+                  "title": "خیلی زیاد",
+                  "value": 4
+                },
+                {
+                  "title": "زیاد",
+                  "value": 3
+                },
+                {
+                  "title": "بدون نظر",
+                  "value": 0
+                },
+                {
+                  "title": "متوسط",
+                  "value": 2
+                },
+                {
+                  "title": "کم",
+                  "value": 1
+                }
+              ],
+              "selected":  3
+            }
+          ],
+          "passage": [
+            {
+              "text": "این بخش اول متن"
+            },
+            {
+              "text": "این بخش دوم متن"
+            },
+            {
+              "text": "این بخش سوم متن"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "step": 4,
+      "step_title": "4- دوست من ، به من بگو وقتی این کار رو انجام میدی:",
+      "sections": [
+        {
+          "section": 1,
+          "value_by": "by select",
+          "title": "سوال هفت؟",
+          "rate_detail": [
+            {
+              "title": "امتیاز دهی ۱",
+              "options": [
+                {
+                  "title": "خیلی زیاد",
+                  "value": 4
+                },
+                {
+                  "title": "زیاد",
+                  "value": 3
+                },
+                {
+                  "title": "بدون نظر",
+                  "value": 0
+                },
+                {
+                  "title": "متوسط",
+                  "value": 2
+                },
+                {
+                  "title": "کم",
+                  "value": 1
+                }
+              ],
+              "selected":  3
+            },
+            {
+              "title": "امتیاز دهی ۲",
+              "options": [
+                {
+                  "title": "خیلی زیاد",
+                  "value": 4
+                },
+                {
+                  "title": "زیاد",
+                  "value": 3
+                },
+                {
+                  "title": "بدون نظر",
+                  "value": 0
+                },
+                {
+                  "title": "متوسط",
+                  "value": 2
+                },
+                {
+                  "title": "کم",
+                  "value": 1
+                }
+              ],
+              "selected":  3
+            },
+            {
+              "title": "متیاز دهی ۳",
+              "options": [
+                {
+                  "title": "خیلی زیاد",
+                  "value": 4
+                },
+                {
+                  "title": "زیاد",
+                  "value": 3
+                },
+                {
+                  "title": "بدون نظر",
+                  "value": 0
+                },
+                {
+                  "title": "متوسط",
+                  "value": 2
+                },
+                {
+                  "title": "کم",
+                  "value": 1
+                }
+              ],
+              "selected":  3
+            }
+          ],
+          "passage": [
+            {
+              "text": "این بخش اول متن"
+            },
+            {
+              "text": "این بخش دوم متن"
+            },
+            {
+              "text": "این بخش سوم متن"
+            }
+          ]
+        },
+        {
+          "section": 2,
+          "value_by": "by value",
+          "title": "سوال هشت؟",
+          "rate_detail": [
+            {
+              "title": "امتیاز دهی ۱",
+              "options": [
+                {
+                  "title": "خیلی زیاد",
+                  "value": 4
+                },
+                {
+                  "title": "زیاد",
+                  "value": 3
+                },
+                {
+                  "title": "بدون نظر",
+                  "value": 0
+                },
+                {
+                  "title": "متوسط",
+                  "value": 2
+                },
+                {
+                  "title": "کم",
+                  "value": 1
+                }
+              ],
+              "selected":  3
+            },
+            {
+              "title": "امتیاز دهی ۲",
+              "options": [
+                {
+                  "title": "خیلی زیاد",
+                  "value": 4
+                },
+                {
+                  "title": "زیاد",
+                  "value": 3
+                },
+                {
+                  "title": "بدون نظر",
+                  "value": 0
+                },
+                {
+                  "title": "متوسط",
+                  "value": 2
+                },
+                {
+                  "title": "کم",
+                  "value": 1
+                }
+              ],
+              "selected":  3
+            },
+            {
+              "title": "متیاز دهی ۳",
+              "options": [
+                {
+                  "title": "خیلی زیاد",
+                  "value": 4
+                },
+                {
+                  "title": "زیاد",
+                  "value": 3
+                },
+                {
+                  "title": "بدون نظر",
+                  "value": 0
+                },
+                {
+                  "title": "متوسط",
+                  "value": 2
+                },
+                {
+                  "title": "کم",
+                  "value": 1
+                }
+              ],
+              "selected":  3
+            }
+          ],
+          "passage": [
+            {
+              "text": "این بخش اول متن"
+            },
+            {
+              "text": "این بخش دوم متن"
+            },
+            {
+              "text": "این بخش سوم متن"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "step": 5,
+      "step_title": "5- دوست من ، به من بگو وقتی این کار رو انجام میدی:",
+      "sections": [
+        {
+          "section": 1,
+          "value_by": "by select",
+          "title": "سوال نه؟",
+          "rate_detail": [
+            {
+              "title": "امتیاز دهی ۱",
+              "options": [
+                {
+                  "title": "خیلی زیاد",
+                  "value": 4
+                },
+                {
+                  "title": "زیاد",
+                  "value": 3
+                },
+                {
+                  "title": "بدون نظر",
+                  "value": 0
+                },
+                {
+                  "title": "متوسط",
+                  "value": 2
+                },
+                {
+                  "title": "کم",
+                  "value": 1
+                }
+              ],
+              "selected":  3
+            },
+            {
+              "title": "امتیاز دهی ۲",
+              "options": [
+                {
+                  "title": "خیلی زیاد",
+                  "value": 4
+                },
+                {
+                  "title": "زیاد",
+                  "value": 3
+                },
+                {
+                  "title": "بدون نظر",
+                  "value": 0
+                },
+                {
+                  "title": "متوسط",
+                  "value": 2
+                },
+                {
+                  "title": "کم",
+                  "value": 1
+                }
+              ],
+              "selected":  3
+            },
+            {
+              "title": "متیاز دهی ۳",
+              "options": [
+                {
+                  "title": "خیلی زیاد",
+                  "value": 4
+                },
+                {
+                  "title": "زیاد",
+                  "value": 3
+                },
+                {
+                  "title": "بدون نظر",
+                  "value": 0
+                },
+                {
+                  "title": "متوسط",
+                  "value": 2
+                },
+                {
+                  "title": "کم",
+                  "value": 1
+                }
+              ],
+              "selected":  3
+            }
+          ],
+          "passage": [
+            {
+              "text": "این بخش اول متن"
+            },
+            {
+              "text": "این بخش دوم متن"
+            },
+            {
+              "text": "این بخش سوم متن"
+            }
+          ]
+        },
+        {
+          "section": 5,
+          "value_by": "by value",
+          "title": "سوال ده؟",
+          "rate_detail": [
+            {
+              "title": "امتیاز دهی ۱",
+              "options": [
+                {
+                  "title": "خیلی زیاد",
+                  "value": 4
+                },
+                {
+                  "title": "زیاد",
+                  "value": 3
+                },
+                {
+                  "title": "بدون نظر",
+                  "value": 0
+                },
+                {
+                  "title": "متوسط",
+                  "value": 2
+                },
+                {
+                  "title": "کم",
+                  "value": 1
+                }
+              ],
+              "selected":  3
+            },
+            {
+              "title": "امتیاز دهی ۲",
+              "options": [
+                {
+                  "title": "خیلی زیاد",
+                  "value": 4
+                },
+                {
+                  "title": "زیاد",
+                  "value": 3
+                },
+                {
+                  "title": "بدون نظر",
+                  "value": 0
+                },
+                {
+                  "title": "متوسط",
+                  "value": 2
+                },
+                {
+                  "title": "کم",
+                  "value": 1
+                }
+              ],
+              "selected":  3
+            },
+            {
+              "title": "متیاز دهی ۳",
+              "options": [
+                {
+                  "title": "خیلی زیاد",
+                  "value": 4
+                },
+                {
+                  "title": "زیاد",
+                  "value": 3
+                },
+                {
+                  "title": "بدون نظر",
+                  "value": 0
+                },
+                {
+                  "title": "متوسط",
+                  "value": 2
+                },
+                {
+                  "title": "کم",
+                  "value": 1
+                }
+              ],
+              "selected":  3
+            }
+          ],
+          "passage": [
+            {
+              "text": "این بخش اول متن"
+            },
+            {
+              "text": "این بخش دوم متن"
+            },
+            {
+              "text": "این بخش سوم متن"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

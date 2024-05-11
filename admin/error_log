@@ -1,0 +1,1 @@
+[11-Mar-2020 15:11:05 Asia/Tehran] PHP Fatal error:  Call to a member function exec() on null in /home/moodpatt/public_html/common/init.inc.php on line 9

