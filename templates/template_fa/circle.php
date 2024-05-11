@@ -228,7 +228,7 @@ $title = array(
         region: "Region " + (i + 1),
         value: Math.floor(Math.random() * 1000000000)
     }));
-    const titles =  <?php echo json_encode(array_keys($title)); ?>;
+    const titles =  <?php echo json_encode(array_values($title)); ?>;
 
     const color = d3.scaleOrdinal()
         .domain(titles)
@@ -353,7 +353,10 @@ $title = array(
     }*/
 
     // تابع clicked باید به این صورت باشد
+    // تابع clicked با تغییرات
+    // تابع clicked باید به این صورت باشد
     function clicked(event, d) {
+        event.preventDefault();
         const clickedNode = d3.select(this);
         const circle = clickedNode.select("circle");
         const text = clickedNode.select("text");
@@ -396,17 +399,25 @@ $title = array(
         clickCount++;
     }
 
+
+
     // تابع ارسال داده
     function submitData() {
         const dataDiv = document.getElementById("data");
         dataDiv.innerHTML = "";
-        circleData.forEach((item, index) => {
+        for (const item of circleData) {
             dataDiv.innerHTML += item.title + ": " + item.clicks + "<br>";
-        });
+        }
     }
 
+
     // زمانی که دکمه ارسال کلیک می‌شود
-    document.getElementById("submit-btn").addEventListener("click", function() {
+    // زمانی که دکمه ارسال کلیک می‌شود
+    // زمانی که دکمه ارسال کلیک می‌شود
+    document.getElementById("submit-btn").addEventListener("click", function(event) {
+        // جلوگیری از ارسال فرم به صورت پیش‌فرض
+        event.preventDefault();
+
         // پیدا کردن دایره‌ای که کاربر روی آن کلیک کرده است
         const selectedCircle = d3.select(".selected circle");
 
@@ -419,15 +430,15 @@ $title = array(
             // اضافه کردن اطلاعات دایره‌ای که کاربر روی آن کلیک کرده است به محتوای صفحه
             const infoDiv = document.getElementById("selectedCirclesList");
             infoDiv.innerHTML = "<li>" + title + ": " + clicks + "</li>";
-            // ارسال پیام
-            // اطلاعات را به فرم اضافه کنید
-            //const form = document.getElementById("myForm");
 
-           // form.querySelector("#dataInput").value = title + ": " + clicks;
             // ارسال فرم
-           // form.submit();
+            const form = document.getElementById("myForm");
+            form.querySelector("#dataInput").value = title + ": " + clicks;
+            form.submit();
         }
     });
+
+
     // What happens when a circle is dragged?
     function dragstarted(event, d) {
         if (!event.active) simulation.alphaTarget(.03).restart();
