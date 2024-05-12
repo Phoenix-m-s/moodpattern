@@ -51,6 +51,7 @@ $title = array(
     48 => "غرامت",
     49 => "مدد"
 );
+$title_json = json_encode($title);
 ?>
 <style>
     .tooltip {
@@ -125,6 +126,7 @@ $title = array(
                 </li>
             </ul>
             <div class="col-md-3">
+
                 <form>
                     <div class="search-container">
                         <div class="search-input">
@@ -189,23 +191,20 @@ $title = array(
         <div class="card-header text-center">
             <h6>اطلاعات دایره‌های انتخاب شده:</h6>
         </div>
-        <form>
-            <div class="card-body" dir="rtl">
-                <ul class="list-group">
-                    <div id="selectedCirclesInfo">
+        <div class="card-body" dir="rtl">
+            <ul class="list-group">
+                <div id="selectedCirclesInfo">
 
-                        <ul id="selectedCirclesList">
-                            <div id="data"></div>
-                        </ul>
-                    </div>
-                </ul>
-            </div>
-
-            <div class="card-footer float-end">
-                <button class="btn btn-success rounded-5 " id="submit-btn" onclick="submitData()">ارسال</button>
-            </div>
-            <input type="hidden" name="action" id="action" value="store">
-        </form>
+                    <ul id="selectedCirclesList">
+                        <div id="data"></div>
+                    </ul>
+                </div>
+            </ul>
+        </div>
+        <div class="card-footer float-end">
+            <button class="btn btn-success rounded-5 " id="submit-btn" onclick="submitData()">ارسال</button>
+        </div>
+        <input type="hidden" name="action" id="action" value="store">
     </div>
 </div>
 
@@ -228,7 +227,12 @@ $title = array(
         region: "Region " + (i + 1),
         value: Math.floor(Math.random() * 1000000000)
     }));
-    const titles =  <?php echo json_encode(array_values($title)); ?>;
+
+    // تبدیل رشته JSON به داده‌های قابل استفاده در جاوااسکریپت
+    // تبدیل رشته JSON به داده‌های قابل استفاده در جاوااسکریپت
+    const titles = JSON.parse('<?php echo $title_json; ?>');
+
+    // سپس از این اطلاعات در کد خود استفاده کنید
 
     const color = d3.scaleOrdinal()
         .domain(titles)
@@ -249,7 +253,7 @@ $title = array(
     let clickCount = 0;
 
     // Initialize data array for clicks
-    let clickData = [];
+    let circleData = [];
 
     // Initialize the circles
     const node = svg.selectAll(".node")
@@ -258,15 +262,6 @@ $title = array(
         .append("g")
         .attr("class", "node")
         .attr("transform", (d, i) => "translate(" + (50 + i * 20) + "," + height / 2 + ")")
-        /*.on("mouseover", function (event, d) {
-            Tooltip.style("opacity", 1)
-                .html('<u>' + d.region + '</u>' + "<br>" + d.value + " inhabitants")
-                .style("left", (event.pageX) + "px")
-                .style("top", (event.pageY - 28) + "px");
-        })
-        .on("mouseleave", function () {
-            Tooltip.style("opacity", 0);
-        })*/
         .on("click", clicked)
         .call(d3.drag()
             .on("start", dragstarted)
@@ -280,20 +275,11 @@ $title = array(
         .attr("stroke", "black")
         .style("stroke-width", 1);
 
-    // Append text to each group
-   /* node.append("text")
-        .attr("text-anchor", "middle")
-        .attr("dominant-baseline", "middle")
-        .text((d, i) => titles[i]);*/
-    // Append text to each group
-    // Append text to each group
     node.append("text")
         .attr("text-anchor", "middle")
         .attr("dominant-baseline", "middle")
         .text((d, i) => titles[i])
         .style("fill", "white"); // تغییر در این قسمت
-
-
 
     // Features of the forces applied to the nodes:
     const simulation = d3.forceSimulation()
@@ -310,52 +296,8 @@ $title = array(
             node.attr("transform", d => "translate(" + d.x + "," + d.y + ")");
         });
 
-    // تعریف متغیر circleData
-    let circleData = [];
-
     // تابع clicked باید به این صورت باشد
-    /*function clicked(event, d) {
-        const clickedNode = d3.select(this);
-        const circle = clickedNode.select("circle");
-        const text = clickedNode.select("text");
-
-        let circleSize = parseFloat(circle.attr("r"));
-
-        if (clickCount % 6 < 3) {
-            circleSize += 10; // Increase size
-        } else {
-            circleSize -= 10; // Decrease size
-        }
-
-        circleSize = Math.max(40, circleSize);
-
-        if (circleSize === 40 && clickCount % 6 !== 0) {
-            circleSize = 50;
-        }
-
-        circle.transition()
-            .duration(500)
-            .attr("r", circleSize);
-
-        text.attr("transform", "translate(0," + (-40) + ")");
-
-        // چک کردن اینکه آیا دایره مورد نظر در circleData وجود دارد یا خیر
-        const dataIndex = circleData.findIndex(item => item.title === text.text());
-        if (dataIndex !== -1) {
-            // اگر دایره در circleData وجود دارد، تعداد کلیک‌ها آن را افزایش می‌دهیم
-            circleData[dataIndex].clicks++;
-        } else {
-            // اگر دایره در circleData وجود ندارد، آن را به circleData اضافه می‌کنیم
-            circleData.push({ title: text.text(), clicks: 1 });
-        }
-
-        clickCount++;
-    }*/
-
-    // تابع clicked باید به این صورت باشد
-    // تابع clicked با تغییرات
-    // تابع clicked باید به این صورت باشد
-    function clicked(event, d) {
+    function clicked(event, d, index) {
         event.preventDefault();
         const clickedNode = d3.select(this);
         const circle = clickedNode.select("circle");
@@ -383,15 +325,16 @@ $title = array(
 
         // چک کردن اینکه آیا دایره مورد نظر در circleData وجود دارد یا خیر
         const dataIndex = circleData.findIndex(item => item.title === text.text());
+        const key = dataIndex !== -1 ? circleData[dataIndex].key : null;
         if (dataIndex !== -1) {
             // اگر دایره در circleData وجود دارد، تعداد کلیک‌ها آن را افزایش می‌دهیم
             circleData[dataIndex].clicks++;
         } else {
             // اگر دایره در circleData وجود ندارد، آن را به circleData اضافه می‌کنیم
-            circleData.push({ title: text.text(), clicks: 1 });
+            circleData.push({ title: text.text(), clicks: 1, key: index }); // استفاده از شمارنده به عنوان کلید
         }
 
-        // اگر تعداد کلیک‌ها بیشتر از 6 بار شود، مقدار کلیک‌ها را برابر 6 می‌کنیم
+        // اگر تعداد کلیک‌ها بیشتر از 8 بار شود، مقدار کلیک‌ها را برابر 8 می‌کنیم
         if (circleData[dataIndex].clicks > 8) {
             circleData[dataIndex].clicks = 8;
         }
@@ -399,20 +342,29 @@ $title = array(
         clickCount++;
     }
 
-
-
-    // تابع ارسال داده
+    // Function to submit and display data
     function submitData() {
+        // Find the div where data will be displayed
         const dataDiv = document.getElementById("data");
-        dataDiv.innerHTML = "";
-        for (const item of circleData) {
-            dataDiv.innerHTML += item.title + ": " + item.clicks + "<br>";
-        }
+        dataDiv.innerHTML = ""; // Clear previous data
+
+        // Loop through circleData array
+        circleData.forEach((item, index) => {
+            const key = index; // Key is the index of the item in the array
+            const title = item.title;
+            const clicks = item.clicks;
+
+            // Create a string with index, title, and clicks information
+            const dataString = `${index}: ${title} (${clicks})<br>`;
+
+            // Append the dataString to the dataDiv
+            dataDiv.innerHTML += dataString;
+        });
     }
 
+    // Initial call to submitData function to display data when page loads
+    submitData();
 
-    // زمانی که دکمه ارسال کلیک می‌شود
-    // زمانی که دکمه ارسال کلیک می‌شود
     // زمانی که دکمه ارسال کلیک می‌شود
     document.getElementById("submit-btn").addEventListener("click", function(event) {
         // جلوگیری از ارسال فرم به صورت پیش‌فرض
@@ -438,13 +390,13 @@ $title = array(
         }
     });
 
-
     // What happens when a circle is dragged?
     function dragstarted(event, d) {
         if (!event.active) simulation.alphaTarget(.03).restart();
         d.fx = d.x;
         d.fy = d.y;
     }
+
 
     function dragged(event, d) {
         d.fx = event.x;
@@ -456,5 +408,5 @@ $title = array(
         d.fx = null;
         d.fy = null;
     }
-
 </script>
+
