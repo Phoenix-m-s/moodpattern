@@ -101,6 +101,11 @@ $title_json = json_encode($title);
         stroke: red; /* رنگ حاشیه دایره */
         stroke-width: 3; /* عرض حاشیه دایره */
     }
+    body {
+        overflow-x: hidden;
+    }
+
+
 
 </style>
 </head>
@@ -126,7 +131,6 @@ $title_json = json_encode($title);
                 </li>
             </ul>
             <div class="col-md-3">
-
                 <form>
                     <div class="search-container">
                         <div class="search-input">
@@ -172,90 +176,83 @@ $title_json = json_encode($title);
         </div>
     </nav>
 </header>
-<div class="container">
-    <div class="col-md-8 mx-auto my-auto">
+<div class="row">
 
-        <div class="oval-shape" id="centerCircle">
-            <!-- Your content goes here -->
-            <p>رابطه ما با همه از نظر من احساسات برای من یعنی</p>
-        </div>
+    <div class="oval-shape" id="centerCircle">
+        <!-- Your content goes here -->
+        <p>رابطه ما با همه از نظر من احساسات برای من یعنی</p>
+    </div>
 
 
-        <div id="my_dataviz">
+    <div id="my_dataviz">
 
+    </div>
+
+
+    <div class="col-md-4 col-xl-4 center-mobile mx-auto my-auto mt-5">
+        <div class="card bg-body-tertiary">
+            <div class="card-header text-center">
+                <h6>اطلاعات دایره‌های انتخاب شده:</h6>
+            </div>
+            <div class="card-body" dir="rtl">
+                <ul class="list-group">
+                    <div id="selectedCirclesInfo">
+
+                        <ul id="selectedCirclesList">
+                            <div id="data"></div>
+                        </ul>
+                    </div>
+                </ul>
+            </div>
+            <div class="card-footer float-end">
+                <button class="btn btn-success rounded-5 " id="submit-btn" onclick="submitData()">ارسال</button>
+            </div>
+            <input type="hidden" name="action" id="action" value="store">
         </div>
     </div>
 </div>
-<div class="col-md-8 col-xl-8 center-mobile mx-auto my-auto mt-5">
-    <div class="card bg-body-tertiary">
-        <div class="card-header text-center">
-            <h6>اطلاعات دایره‌های انتخاب شده:</h6>
-        </div>
-        <div class="card-body" dir="rtl">
-            <ul class="list-group">
-                <div id="selectedCirclesInfo">
-
-                    <ul id="selectedCirclesList">
-                        <div id="data"></div>
-                    </ul>
-                </div>
-            </ul>
-        </div>
-        <div class="card-footer float-end">
-            <button class="btn btn-success rounded-5 " id="submit-btn" onclick="submitData()">ارسال</button>
-        </div>
-        <input type="hidden" name="action" id="action" value="store">
-    </div>
-</div>
-
 <!-- Script -->
 <script type="text/javascript">
     // تنظیم ابعاد SVG
-    const width = 1000;
-    const height = 800;
-
-    // append the svg object to the body of the page
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+    // SVG را به بدنه صفحه اضافه کنید
     const svg = d3.select("#my_dataviz")
         .append("svg")
         .attr("width", width)
         .attr("height", height);
 
-    // Data for circles
-    const data = Array.from({
-        length: 50
-    }, (_, i) => ({
+    // داده‌های دایره‌ها
+    const data = Array.from({ length: 50 }, (_, i) => ({
         region: "Region " + (i + 1),
         value: Math.floor(Math.random() * 1000000000)
     }));
 
     // تبدیل رشته JSON به داده‌های قابل استفاده در جاوااسکریپت
-    // تبدیل رشته JSON به داده‌های قابل استفاده در جاوااسکریپت
     const titles = JSON.parse('<?php echo $title_json; ?>');
 
-    // سپس از این اطلاعات در کد خود استفاده کنید
-
+    // ایجاد مقیاس رنگ
     const color = d3.scaleOrdinal()
-        .domain(titles)
         .range(d3.schemeCategory10);
 
-    // Size scale for circles
+    // مقیاس اندازه برای دایره‌ها
+    const initialSize = 45; // اندازه اولیه دایره‌ها
     const size = d3.scaleLinear()
-        .domain(d3.extent(data, d => d.value))
-        .range([40, 40]);
+        .range([initialSize, initialSize]);
 
-    // create a tooltip
+    // ایجاد ابزار مشاهده
     const Tooltip = d3.select("#my_dataviz")
         .append("div")
         .style("opacity", 0)
         .attr("class", "tooltip");
 
-    // Initialize click counter
+    // شمارنده کلیک
     let clickCount = 0;
 
-    // Initialize data array for clicks
+    // آرایه داده برای کلیک‌ها را مقداردهی اولیه کنید
     let circleData = [];
 
-    // Initialize the circles
+    // ایجاد دایره‌ها
     const node = svg.selectAll(".node")
         .data(data)
         .enter()
@@ -268,9 +265,9 @@ $title_json = json_encode($title);
             .on("drag", dragged)
             .on("end", dragended));
 
-    // Append circles to each group
+    // افزودن دایره به هر گروه
     node.append("circle")
-        .attr("r", d => size(d.value))
+        .attr("r", initialSize)
         .style("fill", (d, i) => color(titles[i]))
         .attr("stroke", "black")
         .style("stroke-width", 1);
@@ -278,25 +275,26 @@ $title_json = json_encode($title);
     node.append("text")
         .attr("text-anchor", "middle")
         .attr("dominant-baseline", "middle")
-        .text((d, i) => titles[i])
-        .style("fill", "white"); // تغییر در این قسمت
+        .text((d, i) => `${i + 1}: ${titles[i]}`) // اضافه کردن شمارهٔ اندیس به عنوان متن دایره
+        .style("fill", "white");
 
-    // Features of the forces applied to the nodes:
+
+    // ویژگی‌های نیروهای اعمال شده بر روی گره‌ها:
     const simulation = d3.forceSimulation()
-        .force("center", d3.forceCenter().x(width / 2).y(height / 2)) // Attraction to the center of the svg area
-        .force("charge", d3.forceManyBody().strength(.1)) // Nodes are attracted to each other if value is > 0
+        .force("center", d3.forceCenter().x(width / 2).y(height / 2)) // جذب به مرکز ناحیه svg
+        .force("charge", d3.forceManyBody().strength(.1)) // گره‌ها به یکدیگر جذب می‌شوند اگر مقدار > 0 باشد
         .force("collide", d3.forceCollide().strength(.2).radius(function (d) {
             return (size(d.value) + 3);
-        }).iterations(1)) // Force that avoids circle overlapping;
+        }).iterations(1)); // نیرویی که از همپوشانی دایره‌ها جلوگیری می‌کند
 
-    // Apply these forces to the nodes and update their positions.
+    // اعمال این نیروها به گره‌ها و به روزرسانی موقعیت آنها.
     simulation
         .nodes(data)
         .on("tick", function (d) {
             node.attr("transform", d => "translate(" + d.x + "," + d.y + ")");
         });
 
-    // تابع clicked باید به این صورت باشد
+    // تابع clicked
     function clicked(event, d, index) {
         event.preventDefault();
         const clickedNode = d3.select(this);
@@ -305,23 +303,23 @@ $title_json = json_encode($title);
 
         let circleSize = parseFloat(circle.attr("r"));
 
-        if (clickCount % 6 < 3) {
-            circleSize += 10; // Increase size
+        if (clickCount % 8 < 4) {
+            circleSize += 10; // افزایش اندازه
         } else {
-            circleSize -= 10; // Decrease size
+            circleSize -= 10; // کاهش اندازه
         }
 
-        circleSize = Math.max(40, circleSize);
+        circleSize = Math.max(initialSize, circleSize);
 
-        if (circleSize === 40 && clickCount % 6 !== 0) {
-            circleSize = 50;
+        if (circleSize === initialSize && clickCount % 8 !== 0) {
+            circleSize = initialSize + 10;
         }
 
         circle.transition()
             .duration(500)
             .attr("r", circleSize);
 
-        text.attr("transform", "translate(0," + (-40) + ")");
+        text.attr("transform", "translate(0," + (-initialSize) + ")");
 
         // چک کردن اینکه آیا دایره مورد نظر در circleData وجود دارد یا خیر
         const dataIndex = circleData.findIndex(item => item.title === text.text());
@@ -331,7 +329,7 @@ $title_json = json_encode($title);
             circleData[dataIndex].clicks++;
         } else {
             // اگر دایره در circleData وجود ندارد، آن را به circleData اضافه می‌کنیم
-            circleData.push({ title: text.text(), clicks: 1, key: index }); // استفاده از شمارنده به عنوان کلید
+            circleData.push({title: text.text(), clicks: 1});
         }
 
         // اگر تعداد کلیک‌ها بیشتر از 8 بار شود، مقدار کلیک‌ها را برابر 8 می‌کنیم
@@ -341,28 +339,56 @@ $title_json = json_encode($title);
 
         clickCount++;
     }
-
-    // Function to submit and display data
+    function removeLetters(inputString) {
+        return inputString.replace(/[^0-9]/g, '');
+    }
+    // تابع برای ارسال و نمایش داده
     function submitData() {
-        // Find the div where data will be displayed
-        const dataDiv = document.getElementById("data");
-        dataDiv.innerHTML = ""; // Clear previous data
+        // تعریف متغیر formData
+        const formData = new FormData();
 
-        // Loop through circleData array
+        // یافتن div که داده‌ها در آن نمایش داده می‌شود
+        const dataDiv = document.getElementById("data");
+        dataDiv.innerHTML = ""; // پاک کردن داده‌های قبلی
+
+        // حلقه از طریق آرایه circleData
         circleData.forEach((item, index) => {
-            const key = index; // Key is the index of the item in the array
-            const title = item.title;
+            const title = removeLetters(item.title);
             const clicks = item.clicks;
 
-            // Create a string with index, title, and clicks information
-            const dataString = `${index}: ${title} (${clicks})<br>`;
+            // ایجاد رشته شامل اطلاعات شماره، عنوان و تعداد کلیک‌ها
+            const dataString = `${removeLetters(title)} (${clicks})<br>`;
 
-            // Append the dataString to the dataDiv
+            // افزودن dataString به dataDiv
             dataDiv.innerHTML += dataString;
+
+            // افزودن اطلاعات به formData
+            formData.append(`circleData[${index}][title]`, title);
+            formData.append(`circleData[${index}][clicks]`, clicks);
         });
+
+        // ارسال درخواست fetch با استفاده از formData و ارسال به فایل PHP
+        fetch('formIndex.php', {
+            method: 'POST',
+            body: formData
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.text(); // یا response.json() اگر می‌خواهید داده‌های JSON را بخوانید
+            })
+            .then(data => {
+                console.log(data); // دریافت پاسخ از سرور
+                // انجام هر عملیاتی که نیاز به اطلاعات دریافتی از سرور دارد
+            })
+            .catch(error => {
+                console.error('There was an error!', error);
+            });
     }
 
-    // Initial call to submitData function to display data when page loads
+
+    // فراخوانی اولیه تابع submitData برای نمایش داده هنگام بارگذاری صفحه
     submitData();
 
     // زمانی که دکمه ارسال کلیک می‌شود
@@ -370,7 +396,7 @@ $title_json = json_encode($title);
         // جلوگیری از ارسال فرم به صورت پیش‌فرض
         event.preventDefault();
 
-        // پیدا کردن دایره‌ای که کاربر روی آن کلیک کرده است
+        // یافتن دایره‌ای که کاربر روی آن کلیک کرده است
         const selectedCircle = d3.select(".selected circle");
 
         // بررسی اینکه آیا دایره‌ای کلیک شده است یا خیر
@@ -379,7 +405,7 @@ $title_json = json_encode($title);
             const title = selectedCircle.node().parentNode.querySelector("text").textContent;
             const clicks = parseInt(selectedCircle.attr("data-clicks"));
 
-            // اضافه کردن اطلاعات دایره‌ای که کاربر روی آن کلیک کرده است به محتوای صفحه
+            // افزودن اطلاعات دایره‌ای که کاربر روی آن کلیک کرده است به محتوای صفحه
             const infoDiv = document.getElementById("selectedCirclesList");
             infoDiv.innerHTML = "<li>" + title + ": " + clicks + "</li>";
 
@@ -390,7 +416,7 @@ $title_json = json_encode($title);
         }
     });
 
-    // What happens when a circle is dragged?
+    // وقتی یک دایره کشیده می‌شود چه اتفاقی می‌افتد؟
     function dragstarted(event, d) {
         if (!event.active) simulation.alphaTarget(.03).restart();
         d.fx = d.x;
@@ -409,4 +435,3 @@ $title_json = json_encode($title);
         d.fy = null;
     }
 </script>
-
