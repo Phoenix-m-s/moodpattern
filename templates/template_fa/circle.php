@@ -565,7 +565,7 @@ $title_json1 = json_encode($title1);
         .append("g")
         .attr("class", "node1")
         .attr("transform", (d, i) => "translate(" + (50 + i * 20) + "," + height2 / 2 + ")")
-        .on("click", clicked)
+        .on("click", clicked1)
         .call(d3.drag()
             .on("start", dragstarted)
             .on("drag", dragged)
@@ -601,7 +601,7 @@ $title_json1 = json_encode($title1);
         });
 
     // تابع clicked
-    function clicked(event, d, index) {
+    function clicked1(event, d, index) {
         event.preventDefault();
         const clickedNode = d3.select(this);
         const circle = clickedNode.select("circle");
@@ -682,6 +682,7 @@ $title_json1 = json_encode($title1);
         // ارسال درخواست fetch با استفاده از formData و ارسال به فایل PHP
         fetch('formIndex.php', {
             method: 'POST',
+            action:'data2',
             body: formData
         })
             .then(response => {
@@ -695,7 +696,7 @@ $title_json1 = json_encode($title1);
                 // انجام هر عملیاتی که نیاز به اطلاعات دریافتی از سرور دارد
             })
             .catch(error => {
-                //console.error('There was an error!', error);
+                console.error('There was an error!', error);
             });
     }
 
