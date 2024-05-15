@@ -98,6 +98,7 @@ $title_json1 = json_encode($title1);
         box-shadow: 0 0 0 10px #77deae; /* ات لاین */
         direction: rtl;
         text-align: center;
+        opacity: 0.8;
     }
     #centerCircle {
         width: 200px; /* اندازه دلخواه */
@@ -280,7 +281,7 @@ $title_json1 = json_encode($title1);
                         </ul>
                     </div>
                     <div class="card-footer float-end">
-                        <button class="btn btn-success rounded-5 " id="submit-btn1" onclick="submitData()">ارسال</button>
+                        <button class="btn btn-success rounded-5 " id="submit-btn1" onclick="submitData1()">ارسال</button>
                     </div>
                     <input type="hidden" name="action" id="action" value="store">
                 </div>
@@ -517,9 +518,6 @@ $title_json1 = json_encode($title1);
         d.fy = null;
     }
 </script>
-
-
-<!-- Script2 -->
 <!-- Script2 -->
 <script type="text/javascript">
     // تنظیم ابعاد SVG
@@ -724,7 +722,7 @@ $title_json1 = json_encode($title1);
 
             // ارسال فرم
             const form = document.getElementById("myForm1");
-            form.querySelector("#dataInput").value = title + ": " + clicks;
+            form.querySelector("#dataInput1").value = title + ": " + clicks;
             form.submit();
         }
     });

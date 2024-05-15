@@ -1,3 +1,4 @@
+
 <header class="header mb-5">
     <nav class="navbar navbar-expand-lg bg-body-tertiary " dir="rtl">
         <div class="container-fluid">
@@ -114,15 +115,15 @@
     <section class="info mt-5">
         <div class="row">
             <div class="col-md-8">
-                <button type="button" class="btn btn-success m-xl-2 rounded-4 p-2 ">
+                <button type="button" class="btn btn-success m-xl-2 rounded-4 m-2 p-1 fs-6">
                     تماس با مشاوران
                     <img src="<?php echo RELA_DIR . 'templates/' . CURRENT_SKIN; ?>/assets/images/call.svg" alt="moodpattern" title="moodpattern">
                 </button>
-                <button type="button" class="btn btn-light btn-outline-success rounded-4 p-2 m-2 ml-4">مشاوره از طریق واتساپ
+                <button type="button" class="btn btn-light btn-outline-success rounded-4 m-2 p-1 fs-6">مشاوره از طریق واتساپ
 
                     <img src="<?php echo RELA_DIR . 'templates/' . CURRENT_SKIN; ?>/assets/images/watus.svg" alt="moodpattern" title="moodpattern">
                 </button>
-                <button type="button" class="btn btn-light btn-outline-success rounded-4  p-2 m-2">
+                <button type="button" class="btn btn-light btn-outline-success rounded-4 rounded-4 m-2 p-1 fs-6">
                     مشاوره از طریق تلگرام
                     <img src="<?php echo RELA_DIR . 'templates/' . CURRENT_SKIN; ?>/assets/images/telgram.svg" alt="moodpattern" title="moodpattern">
                 </button>
@@ -141,29 +142,31 @@
         <div class="col-md-6">
             <div class="loginFrm m-2 box2-r-img">
                 <form name="circle" id="rapid" role="form" data-validate="form" class="form-horizontal" autocomplete="off" novalidate="novalidate" method="post">
-
                 <div class="row">
-                        <div class="col-md-12">
-                            <h6 class="text-light m-4" dir="rtl" >
-                                فرم ثبت موضوع
-                            </h6>
-                            <p class="text-light m-4 justify-content-md-center" dir="rtl">
-                                با ترسیم گراف حسی می‌تونم کیفت رابطه تو با هرچیزی یا هر هدف یا کاری را تحلیل کنم، مثل فایده و هزینه درونی که برات داره یا میزان علاقه واقعی، نیاز حسی و توانمندی که نسبت بهش داری و خیلی چیزای دیگه، حالا به من بگو الان در مورد چه موضوعی می خوای بدونی؟
-                            </p>
+                    <div class="container mt-5">
+                        <div class="row justify-content-center">
+                            <div class="col-md-9">
+                                <div class="form-container ">
+                                    <h6 class="m-1 text-white" dir="rtl">
+                                        فرم ثبت موضوع
+                                    </h6>
+                                    <p class="m-4 text-white text-justify" dir="rtl" style="text-align: justify">
+                                        با ترسیم گراف حسی می‌تونم کیفت رابطه تو با هرچیزی یا هر هدف یا کاری را تحلیل کنم، مثل فایده و هزینه درونی که برات داره یا میزان علاقه واقعی، نیاز حسی و توانمندی که نسبت بهش داری و خیلی چیزای دیگه، حالا به من بگو الان در مورد چه موضوعی می خوای بدونی؟
+                                    </p>
 
-                            <div class="col-md-9 offset-3" dir="rtl">
-                                <div class="m-4 d-grid gap-3 " dir="rtl">
-                                    <label>
-                                        <input type="text" name="title" class="form-control" placeholder="عنوان">
-                                    </label>
-                                </div>
-                                <div class="m-4 d-grid gap-1">
-
-                                    <input type="submit" class="btn btn-light text-success" value="شروع کنید">
+                                    <div class="col-md-10 offset-md-1" dir="rtl">
+                                        <div class="form-group">
+                                            <label for="title" class="mb-2 text-white">عنوان</label>
+                                            <input type="text" name="title" class="form-control" placeholder="عنوان" id="title">
+                                        </div>
+                                        <div class="text-center">
+                                            <input type="submit" class="btn btn-light d-block w-100 mt-3" value="شروع کنید">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-md-3"></div>
                         </div>
+                    </div>
                     </div>
                     <input type="hidden" name="action"  id="action" value="add">
                     <input type="hidden" name="action"  id="action" value="action">
