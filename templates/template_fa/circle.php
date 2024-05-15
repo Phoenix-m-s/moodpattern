@@ -218,7 +218,9 @@ $title_json1 = json_encode($title1);
     </ul>
 </div>
 <div class="tab-content" id="myTabContent">
+
     <div class="tab-pane fade show active" id="section1" role="tabpanel" aria-labelledby="section1-tab">
+
         <div class="row" dir="rtl">
 
             <div class="oval-shape" id="centerCircle">
@@ -226,13 +228,9 @@ $title_json1 = json_encode($title1);
                 <p>رابطه ما با همه از نظر من احساسات برای من یعنی</p>
             </div>
 
+            <div id="my_dataviz"></div>
 
-            <div id="my_dataviz">
-
-            </div>
-
-
-            <div class="col-md-4 col-xl-4 center-mobile mx-auto my-auto mt-5">
+            <div class="col-md-3 col-xl-3 center-mobile mx-auto my-auto mt-5">
                 <div class="card bg-body-tertiary">
                     <div class="card-header text-center">
                         <h6>اطلاعات دایره‌های انتخاب شده:</h6>
@@ -247,7 +245,7 @@ $title_json1 = json_encode($title1);
                             </div>
                         </ul>
                     </div>
-                    <div class="card-footer float-end">
+                    <div class="card-footer text-center">
                         <button class="btn btn-success rounded-5 " id="submit-btn" onclick="submitData()">ارسال</button>
                     </div>
                     <input type="hidden" name="action" id="action" value="store">
@@ -255,6 +253,7 @@ $title_json1 = json_encode($title1);
             </div>
         </div>
     </div>
+
     <div class="tab-pane fade" id="section2" role="tabpanel" aria-labelledby="section2-tab">
         <div class="row" dir="rtl">
             <div class="oval-shape" id="centerCircle1">
@@ -262,10 +261,9 @@ $title_json1 = json_encode($title1);
                 <p>رابطه ما با همه از نظر من احساسات برای من یعنی</p>
             </div>
 
-            <div id="my_dataviz1">
+            <div id="my_dataviz1"></div>
 
-            </div>
-            <div class="col-md-4 col-xl-4 center-mobile mx-auto my-auto mt-5">
+            <div class="col-md-3 col-xl-3 center-mobile mx-auto my-auto mt-5">
                 <div class="card bg-body-tertiary">
                     <div class="card-header text-center">
                         <h6>اطلاعات دایره‌های انتخاب شده:</h6>
@@ -273,14 +271,13 @@ $title_json1 = json_encode($title1);
                     <div class="card-body" dir="rtl">
                         <ul class="list-group">
                             <div id="selectedCirclesInfo1">
-
                                 <ul id="selectedCirclesList1">
                                     <div id="data1"></div>
                                 </ul>
                             </div>
                         </ul>
                     </div>
-                    <div class="card-footer float-end">
+                    <div class="card-footer text-center">
                         <button class="btn btn-success rounded-5 " id="submit-btn1" onclick="submitData1()">ارسال</button>
                     </div>
                     <input type="hidden" name="action" id="action" value="store">
@@ -626,7 +623,8 @@ $title_json1 = json_encode($title1);
         text.attr("transform", "translate(0," + (-initialSize1) + ")");
 
         // افزودن یک عضو جدید به آرایه داده برای نگه داشتن وضعیت دایره
-        circleData1[index] = circleSize;
+        //circleData1[index] = circleSize;
+        circleData1[index] = { clicks: clickCount1, title: titles1[index % titles1.length] };
 
         // افزایش شمارنده کلیک
         clickCount1++;
@@ -662,19 +660,17 @@ $title_json1 = json_encode($title1);
         dataDiv.innerHTML = ""; // پاک کردن داده‌های قبلی
 
         // حلقه از طریق آرایه circleData
-        circleData.forEach((item, index) => {
-            const title = removeLetters(item.title);
-            const clicks = item.clicks;
+        circleData1.forEach((item, index) => {
+            if (item) {
+                const title = removeLetters(item.title);
+                const clicks = item.clicks;
 
-            // ایجاد رشته شامل اطلاعات شماره، عنوان و تعداد کلیک‌ها
-            const dataString = `${removeLetters(title)} (${clicks})<br>`;
+                const dataString = `${removeLetters(title)} (${clicks})<br>`;
+                dataDiv.innerHTML += dataString;
 
-            // افزودن dataString به dataDiv
-            dataDiv.innerHTML += dataString;
-
-            // افزودن اطلاعات به formData
-            formData.append(`circleData[${index}][title]`, title);
-            formData.append(`circleData[${index}][clicks]`, clicks);
+                formData.append(`circleData[${index}][title]`, title);
+                formData.append(`circleData[${index}][clicks]`, clicks);
+            }
         });
 
         // ارسال درخواست fetch با استفاده از formData و ارسال به فایل PHP
@@ -697,7 +693,6 @@ $title_json1 = json_encode($title1);
                 console.error('There was an error!', error);
             });
     }
-
 
     // فراخوانی اولیه تابع submitData برای نمایش داده هنگام بارگذاری صفحه
     submitData1();
