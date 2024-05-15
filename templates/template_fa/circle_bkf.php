@@ -52,22 +52,6 @@ $title = array(
     49 => "مدد"
 );
 $title_json = json_encode($title);
-
-
-// آرایه دوم
-$title1 = array(
-    0 => "دانش",
-    1 => "علم",
-    2 => "مطالعه",
-    3 => "درس",
-    4 => "آموزش",
-    5 => "تحقیق",
-    6 => "دانشجویی",
-    7 => "استاد",
-    8 => "آزمایش",
-    9 => "پژوهش"
-);
-$title_json1 = json_encode($title1);
 ?>
 <style>
     .tooltip {
@@ -100,15 +84,6 @@ $title_json1 = json_encode($title1);
         text-align: center;
     }
     #centerCircle {
-        width: 200px; /* اندازه دلخواه */
-        height: 200px; /* اندازه دلخواه */
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        z-index:9999;
-    }
-    #centerCircle1 {
         width: 200px; /* اندازه دلخواه */
         height: 200px; /* اندازه دلخواه */
         position: absolute;
@@ -201,99 +176,42 @@ $title_json1 = json_encode($title1);
         </div>
     </nav>
 </header>
+<div class="row">
+
+    <div class="oval-shape" id="centerCircle">
+        <!-- Your content goes here -->
+        <p>رابطه ما با همه از نظر من احساسات برای من یعنی</p>
+    </div>
 
 
-<div class="container">
-    <ul class="nav nav-tabs" id="myTab" role="tablist" dir="rtl">
-        <li class="nav-item">
-            <a class="nav-link active" id="section1-tab" data-toggle="tab" href="#section1" role="tab" aria-controls="section1" aria-selected="true">بخش ۱</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" id="section2-tab" data-toggle="tab" href="#section2" role="tab" aria-controls="section2" aria-selected="false">بخش ۲</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" id="section3-tab" data-toggle="tab" href="#section3" role="tab" aria-controls="section3" aria-selected="false">بخش ۳</a>
-        </li>
-    </ul>
-    <div class="tab-content" id="myTabContent">
-        <div class="tab-pane fade show active" id="section1" role="tabpanel" aria-labelledby="section1-tab">
-            <div class="row">
+    <div id="my_dataviz">
 
-                <div class="oval-shape" id="centerCircle">
-                    <!-- Your content goes here -->
-                    <p>رابطه ما با همه از نظر من احساسات برای من یعنی</p>
-                </div>
+    </div>
 
 
-                <div id="my_dataviz">
-
-                </div>
-
-
-                <div class="col-md-4 col-xl-4 center-mobile mx-auto my-auto mt-5">
-                    <div class="card bg-body-tertiary">
-                        <div class="card-header text-center">
-                            <h6>اطلاعات دایره‌های انتخاب شده:</h6>
-                        </div>
-                        <div class="card-body" dir="rtl">
-                            <ul class="list-group">
-                                <div id="selectedCirclesInfo">
-
-                                    <ul id="selectedCirclesList">
-                                        <div id="data"></div>
-                                    </ul>
-                                </div>
-                            </ul>
-                        </div>
-                        <div class="card-footer float-end">
-                            <button class="btn btn-success rounded-5 " id="submit-btn" onclick="submitData()">ارسال</button>
-                        </div>
-                        <input type="hidden" name="action" id="action" value="store">
-                    </div>
-                </div>
+    <div class="col-md-4 col-xl-4 center-mobile mx-auto my-auto mt-5">
+        <div class="card bg-body-tertiary">
+            <div class="card-header text-center">
+                <h6>اطلاعات دایره‌های انتخاب شده:</h6>
             </div>
-        </div>
-        <div class="tab-pane fade" id="section2" role="tabpanel" aria-labelledby="section2-tab">
-            <div class="row">
-                <div class="oval-shape" id="centerCircle1">
-                    <!-- Your content goes here -->
-                    <p>رابطه ما با همه از نظر من احساسات برای من یعنی</p>
-                </div>
+            <div class="card-body" dir="rtl">
+                <ul class="list-group">
+                    <div id="selectedCirclesInfo">
 
-                <div id="my_dataviz1">
-
-                </div>
-                <div class="col-md-4 col-xl-4 center-mobile mx-auto my-auto mt-5">
-                    <div class="card bg-body-tertiary">
-                        <div class="card-header text-center">
-                            <h6>اطلاعات دایره‌های انتخاب شده:</h6>
-                        </div>
-                        <div class="card-body" dir="rtl">
-                            <ul class="list-group">
-                                <div id="selectedCirclesInfo1">
-
-                                    <ul id="selectedCirclesList1">
-                                        <div id="data1"></div>
-                                    </ul>
-                                </div>
-                            </ul>
-                        </div>
-                        <div class="card-footer float-end">
-                            <button class="btn btn-success rounded-5 " id="submit-btn1" onclick="submitData()">ارسال</button>
-                        </div>
-                        <input type="hidden" name="action" id="action" value="store">
+                        <ul id="selectedCirclesList">
+                            <div id="data"></div>
+                        </ul>
                     </div>
-                </div>
+                </ul>
             </div>
-        </div>
-        <div class="tab-pane fade" id="section3" role="tabpanel" aria-labelledby="section3-tab">
-            <h3>محتوای بخش ۳</h3>
-            <p>اینجا محتوای بخش ۳ قرار می‌گیرد.</p>
+            <div class="card-footer float-end">
+                <button class="btn btn-success rounded-5 " id="submit-btn" onclick="submitData()">ارسال</button>
+            </div>
+            <input type="hidden" name="action" id="action" value="store">
         </div>
     </div>
 </div>
-
-<!-- Script1 -->
+<!-- Script -->
 <script type="text/javascript">
     // تنظیم ابعاد SVG
     const width = window.innerWidth;
@@ -461,11 +379,11 @@ $title_json1 = json_encode($title1);
                 return response.text(); // یا response.json() اگر می‌خواهید داده‌های JSON را بخوانید
             })
             .then(data => {
-                //console.log(data); // دریافت پاسخ از سرور
+                console.log(data); // دریافت پاسخ از سرور
                 // انجام هر عملیاتی که نیاز به اطلاعات دریافتی از سرور دارد
             })
             .catch(error => {
-                //console.error('There was an error!', error);
+                console.error('There was an error!', error);
             });
     }
 
@@ -517,153 +435,3 @@ $title_json1 = json_encode($title1);
         d.fy = null;
     }
 </script>
-
-
-<!-- Script2 -->
-<!-- Script2 -->
-<script type="text/javascript">
-    // تنظیم ابعاد SVG
-    const width2 = window.innerWidth;
-    const height2 = window.innerHeight;
-
-    // SVG جدید را به بدنه صفحه اضافه کنید
-    const svg2 = d3.select("#my_dataviz1")
-        .append("svg")
-        .attr("width", width2)
-        .attr("height", height2);
-
-    // داده‌های دایره‌ها
-    const data1 = Array.from({ length: 9 }, (_, i) => ({
-        region: "Region " + (i + 1),
-        value: Math.floor(Math.random() * 1000000000)
-    }));
-
-    // تبدیل رشته JSON به داده‌های قابل استفاده در جاوااسکریپت
-    const titles1 = JSON.parse('<?php echo $title_json1; ?>');
-
-    // ایجاد مقیاس رنگ
-    const color1 = d3.scaleOrdinal()
-        .range(d3.schemeCategory10);
-
-    // مقیاس اندازه برای دایره‌ها
-    const initialSize1 = 45; // اندازه اولیه دایره‌ها
-    const size1 = d3.scaleLinear()
-        .range([initialSize1, initialSize1]);
-
-  /*  // ایجاد ابزار مشاهده
-    const Tooltip1 = d3.select("#my_dataviz1")
-        .append("div")
-        .style("opacity", 0)
-        .attr("class", "tooltip");
-*/
-    // شمارنده کلیک
-    let clickCount1 = 0;
-
-    // آرایه داده برای کلیک‌ها را مقداردهی اولیه کنید
-    let circleData1 = [];
-
-    // ایجاد گروه‌های جدید برای داده‌ها
-    const node1 = svg2.selectAll(".node1")
-        .data(data1)
-        .enter()
-        .append("g")
-        .attr("class", "node1")
-        .attr("transform", (d, i) => "translate(" + (50 + i * 20) + "," + height2 / 2 + ")")
-        .on("click", clicked)
-        .call(d3.drag()
-            .on("start", dragstarted)
-            .on("drag", dragged)
-            .on("end", dragended));
-
-    // افزودن دایره‌ها به هر گروه جدید
-    node1.append("circle")
-        .attr("r", initialSize1)
-        .style("fill", (d, i) => color1(titles1[i])) // استفاده از titles1 بجای titles
-        .attr("stroke", "black")
-        .style("stroke-width", 1);
-
-    // افزودن متن به هر گروه جدید
-    node1.append("text")
-        .attr("text-anchor", "middle")
-        .attr("dominant-baseline", "middle")
-        .text((d, i) => `${i + 1}: ${titles1[i % titles1.length]}`) // استفاده از titles1 بجای titles
-        .style("fill", "white");
-
-    // ویژگی‌های نیروهای اعمال شده بر روی گره‌ها:
-    const simulation1 = d3.forceSimulation()
-        .force("center", d3.forceCenter().x(width2 / 2).y(height2 / 2)) // جذب به مرکز ناحیه svg
-        .force("charge", d3.forceManyBody().strength(.1)) // گره‌ها به یکدیگر جذب می‌شوند اگر مقدار > 0 باشد
-        .force("collide", d3.forceCollide().strength(.2).radius(function (d) {
-            return (size1(d.value) + 3);
-        }).iterations(1)); // نیرویی که از همپوشانی دایره‌ها جلوگیری می‌کند
-
-    // اعمال این نیروها به گره‌ها و به روزرسانی موقعیت آنها.
-    simulation1
-        .nodes(data1)
-        .on("tick", function (d) {
-            node1.attr("transform", d => "translate(" + d.x + "," + d.y + ")");
-        });
-
-    // تابع clicked
-    function clicked(event, d, index) {
-        event.preventDefault();
-        const clickedNode = d3.select(this);
-        const circle = clickedNode.select("circle");
-        const text = clickedNode.select("text");
-
-        let circleSize = parseFloat(circle.attr("r"));
-
-        if (clickCount1 % 8 < 4) {
-            circleSize += 10; // افزایش اندازه
-        } else {
-            circleSize -= 10; // کاهش اندازه
-        }
-
-        circleSize = Math.max(initialSize1, circleSize);
-
-        if (circleSize === initialSize1 && clickCount1 % 8 !== 0) {
-            circleSize = initialSize1 + 10;
-        }
-
-        circle.transition()
-            .duration(500)
-            .attr("r", circleSize);
-
-        text.attr("transform", "translate(0," + (-initialSize1) + ")");
-
-        // افزودن یک عضو جدید به آرایه داده برای نگه داشتن وضعیت دایره
-        circleData1[index] = circleSize;
-
-        // افزایش شمارنده کلیک
-        clickCount1++;
-
-        // نمایش اطلاعات tooltip
-        Tooltip1.transition()
-            .duration(200)
-            .style("opacity", 1)
-            .style("left", (event.pageX) + "px")
-            .style("top", (event.pageY - 28) + "px")
-            .text("Clicked Circle " + (index + 1) + ": Radius - " + circleSize);
-    }
-
-    // تابع‌های حرکت مرتبط با drag
-    function dragstarted(event, d) {
-        if (!event.active) simulation1.alphaTarget(.03).restart();
-        d.fx = d.x;
-        d.fy = d.y;
-    }
-
-    function dragged(event, d) {
-        d.fx = event.x;
-        d.fy = event.y;
-    }
-
-    function dragended(event, d) {
-        if (!event.active) simulation1.alphaTarget(.03);
-        d.fx = null;
-        d.fy = null;
-    }
-</script>
-
-
-
