@@ -215,81 +215,81 @@ $title_json1 = json_encode($title1);
             <a class="nav-link" id="section3-tab" data-toggle="tab" href="#section3" role="tab" aria-controls="section3" aria-selected="false">بخش ۳</a>
         </li>
     </ul>
-    <div class="tab-content" id="myTabContent">
-        <div class="tab-pane fade show active" id="section1" role="tabpanel" aria-labelledby="section1-tab">
-            <div class="row">
+</div>
+<div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="section1" role="tabpanel" aria-labelledby="section1-tab">
+        <div class="row" dir="rtl">
 
-                <div class="oval-shape" id="centerCircle">
-                    <!-- Your content goes here -->
-                    <p>رابطه ما با همه از نظر من احساسات برای من یعنی</p>
-                </div>
-
-
-                <div id="my_dataviz">
-
-                </div>
+            <div class="oval-shape" id="centerCircle">
+                <!-- Your content goes here -->
+                <p>رابطه ما با همه از نظر من احساسات برای من یعنی</p>
+            </div>
 
 
-                <div class="col-md-4 col-xl-4 center-mobile mx-auto my-auto mt-5">
-                    <div class="card bg-body-tertiary">
-                        <div class="card-header text-center">
-                            <h6>اطلاعات دایره‌های انتخاب شده:</h6>
-                        </div>
-                        <div class="card-body" dir="rtl">
-                            <ul class="list-group">
-                                <div id="selectedCirclesInfo">
+            <div id="my_dataviz">
 
-                                    <ul id="selectedCirclesList">
-                                        <div id="data"></div>
-                                    </ul>
-                                </div>
-                            </ul>
-                        </div>
-                        <div class="card-footer float-end">
-                            <button class="btn btn-success rounded-5 " id="submit-btn" onclick="submitData()">ارسال</button>
-                        </div>
-                        <input type="hidden" name="action" id="action" value="store">
+            </div>
+
+
+            <div class="col-md-4 col-xl-4 center-mobile mx-auto my-auto mt-5">
+                <div class="card bg-body-tertiary">
+                    <div class="card-header text-center">
+                        <h6>اطلاعات دایره‌های انتخاب شده:</h6>
                     </div>
+                    <div class="card-body" dir="rtl">
+                        <ul class="list-group">
+                            <div id="selectedCirclesInfo">
+
+                                <ul id="selectedCirclesList">
+                                    <div id="data"></div>
+                                </ul>
+                            </div>
+                        </ul>
+                    </div>
+                    <div class="card-footer float-end">
+                        <button class="btn btn-success rounded-5 " id="submit-btn" onclick="submitData()">ارسال</button>
+                    </div>
+                    <input type="hidden" name="action" id="action" value="store">
                 </div>
             </div>
         </div>
-        <div class="tab-pane fade" id="section2" role="tabpanel" aria-labelledby="section2-tab">
-            <div class="row">
-                <div class="oval-shape" id="centerCircle1">
-                    <!-- Your content goes here -->
-                    <p>رابطه ما با همه از نظر من احساسات برای من یعنی</p>
-                </div>
+    </div>
+    <div class="tab-pane fade" id="section2" role="tabpanel" aria-labelledby="section2-tab">
+        <div class="row" dir="rtl">
+            <div class="oval-shape" id="centerCircle1">
+                <!-- Your content goes here -->
+                <p>رابطه ما با همه از نظر من احساسات برای من یعنی</p>
+            </div>
 
-                <div id="my_dataviz1">
+            <div id="my_dataviz1">
 
-                </div>
-                <div class="col-md-4 col-xl-4 center-mobile mx-auto my-auto mt-5">
-                    <div class="card bg-body-tertiary">
-                        <div class="card-header text-center">
-                            <h6>اطلاعات دایره‌های انتخاب شده:</h6>
-                        </div>
-                        <div class="card-body" dir="rtl">
-                            <ul class="list-group">
-                                <div id="selectedCirclesInfo1">
-
-                                    <ul id="selectedCirclesList1">
-                                        <div id="data1"></div>
-                                    </ul>
-                                </div>
-                            </ul>
-                        </div>
-                        <div class="card-footer float-end">
-                            <button class="btn btn-success rounded-5 " id="submit-btn1" onclick="submitData()">ارسال</button>
-                        </div>
-                        <input type="hidden" name="action" id="action" value="store">
+            </div>
+            <div class="col-md-4 col-xl-4 center-mobile mx-auto my-auto mt-5">
+                <div class="card bg-body-tertiary">
+                    <div class="card-header text-center">
+                        <h6>اطلاعات دایره‌های انتخاب شده:</h6>
                     </div>
+                    <div class="card-body" dir="rtl">
+                        <ul class="list-group">
+                            <div id="selectedCirclesInfo1">
+
+                                <ul id="selectedCirclesList1">
+                                    <div id="data1"></div>
+                                </ul>
+                            </div>
+                        </ul>
+                    </div>
+                    <div class="card-footer float-end">
+                        <button class="btn btn-success rounded-5 " id="submit-btn1" onclick="submitData()">ارسال</button>
+                    </div>
+                    <input type="hidden" name="action" id="action" value="store">
                 </div>
             </div>
-        </div>
-        <div class="tab-pane fade" id="section3" role="tabpanel" aria-labelledby="section3-tab">
-            <h3>محتوای بخش ۳</h3>
-            <p>اینجا محتوای بخش ۳ قرار می‌گیرد.</p>
-        </div>
+        </div dir>
+    </div>
+    <div class="tab-pane fade" id="section3" role="tabpanel" aria-labelledby="section3-tab">
+        <h3>محتوای بخش ۳</h3>
+        <p>اینجا محتوای بخش ۳ قرار می‌گیرد.</p>
     </div>
 </div>
 
@@ -550,12 +550,8 @@ $title_json1 = json_encode($title1);
     const size1 = d3.scaleLinear()
         .range([initialSize1, initialSize1]);
 
-  /*  // ایجاد ابزار مشاهده
-    const Tooltip1 = d3.select("#my_dataviz1")
-        .append("div")
-        .style("opacity", 0)
-        .attr("class", "tooltip");
-*/
+
+
     // شمارنده کلیک
     let clickCount1 = 0;
 
@@ -638,12 +634,7 @@ $title_json1 = json_encode($title1);
         clickCount1++;
 
         // نمایش اطلاعات tooltip
-        Tooltip1.transition()
-            .duration(200)
-            .style("opacity", 1)
-            .style("left", (event.pageX) + "px")
-            .style("top", (event.pageY - 28) + "px")
-            .text("Clicked Circle " + (index + 1) + ": Radius - " + circleSize);
+
     }
 
     // تابع‌های حرکت مرتبط با drag
@@ -663,6 +654,79 @@ $title_json1 = json_encode($title1);
         d.fx = null;
         d.fy = null;
     }
+
+    function submitData1() {
+        // تعریف متغیر formData
+        const formData = new FormData();
+
+        // یافتن div که داده‌ها در آن نمایش داده می‌شود
+        const dataDiv = document.getElementById("data1");
+        dataDiv.innerHTML = ""; // پاک کردن داده‌های قبلی
+
+        // حلقه از طریق آرایه circleData
+        circleData.forEach((item, index) => {
+            const title = removeLetters(item.title);
+            const clicks = item.clicks;
+
+            // ایجاد رشته شامل اطلاعات شماره، عنوان و تعداد کلیک‌ها
+            const dataString = `${removeLetters(title)} (${clicks})<br>`;
+
+            // افزودن dataString به dataDiv
+            dataDiv.innerHTML += dataString;
+
+            // افزودن اطلاعات به formData
+            formData.append(`circleData[${index}][title]`, title);
+            formData.append(`circleData[${index}][clicks]`, clicks);
+        });
+
+        // ارسال درخواست fetch با استفاده از formData و ارسال به فایل PHP
+        fetch('formIndex.php', {
+            method: 'POST',
+            body: formData
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.text(); // یا response.json() اگر می‌خواهید داده‌های JSON را بخوانید
+            })
+            .then(data => {
+                //console.log(data); // دریافت پاسخ از سرور
+                // انجام هر عملیاتی که نیاز به اطلاعات دریافتی از سرور دارد
+            })
+            .catch(error => {
+                //console.error('There was an error!', error);
+            });
+    }
+
+
+    // فراخوانی اولیه تابع submitData برای نمایش داده هنگام بارگذاری صفحه
+    submitData1();
+
+    // زمانی که دکمه ارسال کلیک می‌شود
+    document.getElementById("submit-btn1").addEventListener("click", function(event) {
+        // جلوگیری از ارسال فرم به صورت پیش‌فرض
+        event.preventDefault();
+
+        // یافتن دایره‌ای که کاربر روی آن کلیک کرده است
+        const selectedCircle = d3.select(".selected circle");
+
+        // بررسی اینکه آیا دایره‌ای کلیک شده است یا خیر
+        if (!selectedCircle.empty()) {
+            // گرفتن عنوان و تعداد کلیک دایره‌ای که کاربر روی آن کلیک کرده است
+            const title = selectedCircle.node().parentNode.querySelector("text").textContent;
+            const clicks = parseInt(selectedCircle.attr("data-clicks"));
+
+            // افزودن اطلاعات دایره‌ای که کاربر روی آن کلیک کرده است به محتوای صفحه
+            const infoDiv = document.getElementById("selectedCirclesList1");
+            infoDiv.innerHTML = "<li>" + title + ": " + clicks + "</li>";
+
+            // ارسال فرم
+            const form = document.getElementById("myForm1");
+            form.querySelector("#dataInput").value = title + ": " + clicks;
+            form.submit();
+        }
+    });
 </script>
 
 
