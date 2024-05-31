@@ -280,10 +280,10 @@ $title_json1 = json_encode($title1);
                     <div class="card-footer text-center">
                         <button class="btn btn-success rounded-5 " id="submit-btn1" onclick="submitData1()">ارسال</button>
                     </div>
-                    <input type="hidden" name="action" id="action" value="store">
+                    <input type="hidden" name="action" id="action" value="data2">
                 </div>
             </div>
-        </div dir>
+        </div>
     </div>
     <div class="tab-pane fade" id="section3" role="tabpanel" aria-labelledby="section3-tab">
         <h3>محتوای بخش ۳</h3>
@@ -515,7 +515,7 @@ $title_json1 = json_encode($title1);
         d.fy = null;
     }
 </script>
-<!-- Script2 -->
+<!--script2-->
 <script type="text/javascript">
     // تنظیم ابعاد SVG
     const width2 = window.innerWidth;
@@ -544,8 +544,6 @@ $title_json1 = json_encode($title1);
     const initialSize1 = 45; // اندازه اولیه دایره‌ها
     const size1 = d3.scaleLinear()
         .range([initialSize1, initialSize1]);
-
-
 
     // شمارنده کلیک
     let clickCount1 = 0;
@@ -596,7 +594,7 @@ $title_json1 = json_encode($title1);
         });
 
     // تابع clicked
-    function clicked1(event, d, index) {
+    function clicked1(event, d) {
         event.preventDefault();
         const clickedNode = d3.select(this);
         const circle = clickedNode.select("circle");
@@ -622,18 +620,83 @@ $title_json1 = json_encode($title1);
 
         text.attr("transform", "translate(0," + (-initialSize1) + ")");
 
-        // افزودن یک عضو جدید به آرایه داده برای نگه داشتن وضعیت دایره
-        //circleData1[index] = circleSize;
-        circleData1[index] = { clicks: clickCount1, title: titles1[index % titles1.length] };
+        const index = circleData1.findIndex(item => item.title === text.text());
+        if (index !== -1) {
+            circleData1[index].clicks++;
+        } else {
+            circleData1.push({ title: text.text(), clicks: 1 });
+        }
 
-        // افزایش شمارنده کلیک
+        if (circleData1[index].clicks > 8) {
+            circleData1[index].clicks = 8;
+        }
+
         clickCount1++;
-
-        // نمایش اطلاعات tooltip
-
     }
 
-    // تابع‌های حرکت مرتبط با drag
+    function removeLetters(inputString) {
+        return inputString.replace(/[^0-9]/g, '');
+    }
+
+    // تابع برای ارسال و نمایش داده
+    function submitData1() {
+        // تعریف متغیر formData
+        const formData1 = new FormData();
+
+        // یافتن div که داده‌ها در آن نمایش داده می‌شود
+        const dataDiv = document.getElementById("data1");
+        dataDiv.innerHTML = ""; // پاک کردن داده‌های قبلی
+
+        // حلقه از طریق آرایه circleData
+        circleData1.forEach((item, index) => {
+            const title = removeLetters(item.title);
+            const clicks = item.clicks;
+
+            const dataString = `${removeLetters(title)} (${clicks})<br>`;
+            dataDiv.innerHTML += dataString;
+
+            formData1.append(`circleData[${index}][title]`, title);
+            formData1.append(`circleData[${index}][clicks]`, clicks);
+        });
+
+        fetch('formIndex.php?action=data2', {
+            method: 'POST',
+            body: formData1
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.text();
+            })
+            .then(data => {
+                //console.log(data);
+            })
+            .catch(error => {
+                console.error('There was an error!', error);
+            });
+    }
+
+    submitData1();
+
+    document.getElementById("submit-btn1").addEventListener("click", function(event) {
+        event.preventDefault();
+
+        const selectedCircle = d3.select(".selected circle");
+
+        if (!selectedCircle.empty()) {
+            const title = selectedCircle.node().parentNode.querySelector("text").textContent;
+            const clicks = parseInt(selectedCircle.attr("data-clicks"));
+
+            const infoDiv = document.getElementById("selectedCirclesList1");
+            infoDiv.innerHTML = "<li>" + title + ": " + clicks + "</li>";
+
+            const form1 = document.getElementById("myForm1");
+            form1.querySelector("#dataInput1").value = title + ": " + clicks;
+            form1.submit();
+        }
+    });
+
     function dragstarted(event, d) {
         if (!event.active) simulation1.alphaTarget(.03).restart();
         d.fx = d.x;
@@ -650,78 +713,8 @@ $title_json1 = json_encode($title1);
         d.fx = null;
         d.fy = null;
     }
-
-    function submitData1() {
-        // تعریف متغیر formData
-        const formData = new FormData();
-
-        // یافتن div که داده‌ها در آن نمایش داده می‌شود
-        const dataDiv = document.getElementById("data1");
-        dataDiv.innerHTML = ""; // پاک کردن داده‌های قبلی
-
-        // حلقه از طریق آرایه circleData
-        circleData1.forEach((item, index) => {
-            if (item) {
-                const title = removeLetters(item.title);
-                const clicks = item.clicks;
-
-                const dataString = `${removeLetters(title)} (${clicks})<br>`;
-                dataDiv.innerHTML += dataString;
-
-                formData.append(`circleData[${index}][title]`, title);
-                formData.append(`circleData[${index}][clicks]`, clicks);
-            }
-        });
-
-        // ارسال درخواست fetch با استفاده از formData و ارسال به فایل PHP
-        fetch('formIndex.php', {
-            method: 'POST',
-            action:'data2',
-            body: formData
-        })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.text(); // یا response.json() اگر می‌خواهید داده‌های JSON را بخوانید
-            })
-            .then(data => {
-                //console.log(data); // دریافت پاسخ از سرور
-                // انجام هر عملیاتی که نیاز به اطلاعات دریافتی از سرور دارد
-            })
-            .catch(error => {
-                console.error('There was an error!', error);
-            });
-    }
-
-    // فراخوانی اولیه تابع submitData برای نمایش داده هنگام بارگذاری صفحه
-    submitData1();
-
-    // زمانی که دکمه ارسال کلیک می‌شود
-    document.getElementById("submit-btn1").addEventListener("click", function(event) {
-        // جلوگیری از ارسال فرم به صورت پیش‌فرض
-        event.preventDefault();
-
-        // یافتن دایره‌ای که کاربر روی آن کلیک کرده است
-        const selectedCircle = d3.select(".selected circle");
-
-        // بررسی اینکه آیا دایره‌ای کلیک شده است یا خیر
-        if (!selectedCircle.empty()) {
-            // گرفتن عنوان و تعداد کلیک دایره‌ای که کاربر روی آن کلیک کرده است
-            const title = selectedCircle.node().parentNode.querySelector("text").textContent;
-            const clicks = parseInt(selectedCircle.attr("data-clicks"));
-
-            // افزودن اطلاعات دایره‌ای که کاربر روی آن کلیک کرده است به محتوای صفحه
-            const infoDiv = document.getElementById("selectedCirclesList1");
-            infoDiv.innerHTML = "<li>" + title + ": " + clicks + "</li>";
-
-            // ارسال فرم
-            const form = document.getElementById("myForm1");
-            form.querySelector("#dataInput1").value = title + ": " + clicks;
-            form.submit();
-        }
-    });
 </script>
+
 
 
 

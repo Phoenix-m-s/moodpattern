@@ -19,6 +19,11 @@ switch ($_GET['action']) {
             $fromIndex->create($_POST);
         }
         break;
+        if (isset($_POST['action']) & $_POST['action'] == 'data2') {
+
+            print_r_debug($_POST);
+        }
+        break;
     default:
         $fromIndex->show('', '', '');
         break;
