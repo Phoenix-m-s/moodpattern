@@ -322,7 +322,7 @@ $title_json3 = json_encode($title3);
                 <!-- Your content goes here -->
                 <p>رابطه ما با همه از نظر من احساسات برای من یعنی</p>
             </div>
-
+            <br>
             <div id="my_dataviz3"></div>
 
             <div class="col-md-3 col-xl-3 center-mobile mx-auto my-auto mt-5">
@@ -787,7 +787,7 @@ $title_json3 = json_encode($title3);
         .attr("height", height3);
 
     // داده‌های دایره‌ها
-    const data3 = Array.from({ length: 25 }, (_, i) => ({
+    const data3 = Array.from({ length:  <?php echo '25'; ?> }, (_, i) => ({
         region: "Region " + (i + 1),
         value: Math.floor(Math.random() * 1000000000)
     }));
@@ -853,7 +853,7 @@ $title_json3 = json_encode($title3);
         });
 
     // تابع clicked
-    function clicked3(event, d) {
+    function clicked3(event, d, index) {
         event.preventDefault();
         const clickedNode = d3.select(this);
         const circle = clickedNode.select("circle");
@@ -879,25 +879,31 @@ $title_json3 = json_encode($title3);
 
         text.attr("transform", "translate(0," + (-initialSize3) + ")");
 
-        const index = circleData3.findIndex(item => item.title === text.text());
-        if (index !== -1) {
-            circleData3[index].clicks++;
-        } else {
-            circleData3.push({ title: text.text(), clicks: 1 });
-        }
+        // افزودن یک عضو جدید به آرایه داده برای نگه داشتن وضعیت دایره
+        circleData3[index] = { clicks: clickCount3, title: titles3[index % titles3.length] };
 
-        if (circleData3[index].clicks > 8) {
-            circleData3[index].clicks = 8;
-        }
-
+        // افزایش شمارنده کلیک
         clickCount3++;
     }
 
-    function removeLetters(inputString) {
-        return inputString.replace(/[^0-9]/g, '');
+    // تابع‌های حرکت مرتبط با drag
+    function dragstarted(event, d) {
+        if (!event.active) simulation3.alphaTarget(.03).restart();
+        d.fx = d.x;
+        d.fy = d.y;
     }
 
-    // تابع برای ارسال و نمایش داده
+    function dragged(event, d) {
+        d.fx = event.x;
+        d.fy = event.y;
+    }
+
+    function dragended(event, d) {
+        if (!event.active) simulation3.alphaTarget(.03);
+        d.fx = null;
+        d.fy = null;
+    }
+
     function submitData3() {
         // تعریف متغیر formData
         const formData3 = new FormData();
@@ -932,7 +938,7 @@ $title_json3 = json_encode($title3);
                 return response.text(); // یا response.json() اگر می‌خواهید داده‌های JSON را بخوانید
             })
             .then(data => {
-                console.log(data); // دریافت پاسخ از سرور
+                //console.log(data); // دریافت پاسخ از سرور
                 // انجام هر عملیاتی که نیاز به اطلاعات دریافتی از سرور دارد
             })
             .catch(error => {
@@ -968,7 +974,6 @@ $title_json3 = json_encode($title3);
         }
     });
 </script>
-
 
 
 
