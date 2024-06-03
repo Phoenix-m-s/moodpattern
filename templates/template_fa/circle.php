@@ -29,32 +29,11 @@ $title = array(
     26 => "آشتی",
     27 => "خواب",
     28 => "وصال",
-    29 => "تفریح",
-    30 => "شیفتگی",
-    31 => "یگانگی",
-    32 => "عاشقی",
-    33 => "تمایل",
-    34 => "همدلانه",
-    35 => "صمیمیت",
-    36 => "شادمانی",
-    37 => "معصومیت",
-    38 => "هوس",
-    39 => "هیجان",
-    40 => "وابستگی",
-    41 => "منفعت",
-    42 => "التفات",
-    43 => "دلبستگی",
-    44 => "پایبندی",
-    45 => "عاطفت",
-    46 => "پیمان",
-    47 => "محبوبیت",
-    48 => "غرامت",
-    49 => "مدد"
+    29 => "تفریح"
 );
 $title_json = json_encode($title);
 
 
-// آرایه دوم
 $title1 = array(
     0 => "دانش",
     1 => "علم",
@@ -65,8 +44,24 @@ $title1 = array(
     6 => "دانشجویی",
     7 => "استاد",
     8 => "آزمایش",
-    9 => "پژوهش"
+    9 => "پژوهش",
+    10 => "کتابخانه",
+    11 => "مقاله",
+    12 => "کنفرانس",
+    13 => "ژورنال",
+    14 => "رساله",
+    15 => "سمینار",
+    16 => "کلاس",
+    17 => "دانشگاه",
+    18 => "مدرسه",
+    19 => "آموزشگاه",
+    20 => "درس‌نامه",
+    21 => "جزوه",
+    22 => "کالج",
+    23 => "مدرس",
+    24 => "پژوهشگر"
 );
+
 $title_json1 = json_encode($title1);
 
 
@@ -96,26 +91,17 @@ $title3 = array(
     22 => "رفاقت",
     23 => "همبستگی",
     24 => "معنویت",
-    25 => "یاری"
+    25 => "یاری",
+    26 => "وفاداری",
+    27 => "دلبستگی",
+    28 => "مهربانی",
+    29 => "علاقه"
 );
+
 $title_json3 = json_encode($title3);
 ?>
 <style>
-    .tooltip {
-        position: absolute;
-        text-align: center;
-        width: 80px;
-        height: 28px;
-        padding: 2px;
-        font: 12px sans-serif;
-        background: lightsteelblue;
-        border: 0;
-        border-radius: 8px;
-        pointer-events: none;
-        opacity: 0;
-    }
-
-    .oval-shape {
+     .oval-shape {
         width: 240px;
         height: 240px;
         margin: 65px auto 0;
@@ -131,24 +117,17 @@ $title_json3 = json_encode($title3);
         text-align: center;
         opacity: 0.8;
     }
+    /*
     #centerCircle {
-        width: 200px; /* اندازه دلخواه */
-        height: 200px; /* اندازه دلخواه */
+        width: 200px; !* اندازه دلخواه *!
+        height: 200px; !* اندازه دلخواه *!
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
         z-index:9999;
     }
-    #centerCircle1 {
-        width: 200px; /* اندازه دلخواه */
-        height: 200px; /* اندازه دلخواه */
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        z-index:9999;
-    }
+    */
 
     #my_dataviz svg {
         opacity: 0.9; /* برای مثال، تنظیم شفافیت به 0.7 */
@@ -251,14 +230,14 @@ $title_json3 = json_encode($title3);
 <div class="tab-content" id="myTabContent">
 
     <div class="tab-pane fade show active" id="section1" role="tabpanel" aria-labelledby="section1-tab">
+      <div class="row">
+          <div class="oval-shape" id="centerCircle">
+              <!-- Your content goes here -->
+              <p>رابطه ما با همه از نظر من احساسات برای من یعنی</p>
+          </div>
+      </div>
 
         <div class="row" dir="rtl">
-
-            <div class="oval-shape" id="centerCircle">
-                <!-- Your content goes here -->
-                <p>رابطه ما با همه از نظر من احساسات برای من یعنی</p>
-            </div>
-
             <div id="my_dataviz"></div>
 
             <div class="col-md-3 col-xl-3 center-mobile mx-auto my-auto mt-5">
@@ -286,14 +265,15 @@ $title_json3 = json_encode($title3);
     </div>
 
     <div class="tab-pane fade" id="section2" role="tabpanel" aria-labelledby="section2-tab">
-        <div class="row" dir="rtl">
+        <div class="row">
             <div class="oval-shape" id="centerCircle1">
                 <!-- Your content goes here -->
-                <p>رابطه ما با همه از نظر من احساسات برای من یعنی</p>
+                <p>برای من، هر رابطه ارتباطی با احساسات و ارزش‌های من دارد</p>
             </div>
+        </div>
 
+        <div class="row" dir="rtl">
             <div id="my_dataviz1"></div>
-
             <div class="col-md-3 col-xl-3 center-mobile mx-auto my-auto mt-5">
                 <div class="card bg-body-tertiary">
                     <div class="card-header text-center">
@@ -314,15 +294,19 @@ $title_json3 = json_encode($title3);
                     <input type="hidden" name="action" id="action" value="data2">
                 </div>
             </div>
+
         </div>
     </div>
     <div class="tab-pane fade" id="section3" role="tabpanel" aria-labelledby="section3-tab">
-        <div class="row" dir="rtl">
-            <div class="oval-shape" id="centerCircle3">
+        <div class="row">
+            <div class="oval-shape" id="centerCircle">
                 <!-- Your content goes here -->
-                <p>رابطه ما با همه از نظر من احساسات برای من یعنی</p>
+                <p>برای من، روابط من با همه به احساساتم ارتباط دارند</p>
             </div>
-            <br>
+        </div>
+        <div class="row" dir="rtl">
+
+
             <div id="my_dataviz3"></div>
 
             <div class="col-md-3 col-xl-3 center-mobile mx-auto my-auto mt-5">
@@ -342,11 +326,10 @@ $title_json3 = json_encode($title3);
                     <div class="card-footer text-center">
                         <button class="btn btn-success rounded-5" id="submit-btn3" onclick="submitData3()">ارسال</button>
                     </div>
-                    <input type="hidden" name="action" id="action" value="data4">
+                    <input type="hidden" name="action" id="action" value="data3">
                 </div>
             </div>
         </div>
-
     </div>
 </div>
 
@@ -362,7 +345,7 @@ $title_json3 = json_encode($title3);
         .attr("height", height);
 
     // داده‌های دایره‌ها
-    const data = Array.from({ length: 50 }, (_, i) => ({
+    const data = Array.from({ length: 30 }, (_, i) => ({
         region: "Region " + (i + 1),
         value: Math.floor(Math.random() * 1000000000)
     }));
@@ -587,7 +570,7 @@ $title_json3 = json_encode($title3);
         .attr("height", height2);
 
     // داده‌های دایره‌ها
-    const data1 = Array.from({ length: 9 }, (_, i) => ({
+    const data1 = Array.from({ length: 25 }, (_, i) => ({
         region: "Region " + (i + 1),
         value: Math.floor(Math.random() * 1000000000)
     }));
@@ -637,6 +620,13 @@ $title_json3 = json_encode($title3);
         .text((d, i) => `${i + 1}: ${titles1[i % titles1.length]}`) // استفاده از titles1 بجای titles
         .style("fill", "white");
 
+
+    // دایره وسط
+    const centerCircle1 = svg2.append("circle")
+        .attr("cx", width2 / 2)
+        .attr("cy", height2 / 2)
+        .attr("r", initialSize1 * 2)
+        .style("fill", "none");
     // ویژگی‌های نیروهای اعمال شده بر روی گره‌ها:
     const simulation1 = d3.forceSimulation()
         .force("center", d3.forceCenter().x(width2 / 2).y(height2 / 2)) // جذب به مرکز ناحیه svg
@@ -773,8 +763,7 @@ $title_json3 = json_encode($title3);
         d.fy = null;
     }
 </script>
-
-<!-- script3-->
+<!--script3-->
 <script type="text/javascript">
     // تنظیم ابعاد SVG
     const width3 = window.innerWidth;
@@ -787,7 +776,7 @@ $title_json3 = json_encode($title3);
         .attr("height", height3);
 
     // داده‌های دایره‌ها
-    const data3 = Array.from({ length:  <?php echo '25'; ?> }, (_, i) => ({
+    const data3 = Array.from({ length: 30 }, (_, i) => ({
         region: "Region " + (i + 1),
         value: Math.floor(Math.random() * 1000000000)
     }));
@@ -837,12 +826,19 @@ $title_json3 = json_encode($title3);
         .text((d, i) => `${i + 1}: ${titles3[i % titles3.length]}`) // استفاده از titles3 بجای titles
         .style("fill", "white");
 
+    // دایره وسط
+    const centerCircle = svg3.append("circle")
+        .attr("cx", width3 / 2)
+        .attr("cy", height3 / 2)
+        .attr("r", initialSize3 * 2)
+        .style("fill", "none");
+
     // ویژگی‌های نیروهای اعمال شده بر روی گره‌ها:
     const simulation3 = d3.forceSimulation()
         .force("center", d3.forceCenter().x(width3 / 2).y(height3 / 2)) // جذب به مرکز ناحیه svg
         .force("charge", d3.forceManyBody().strength(.1)) // گره‌ها به یکدیگر جذب می‌شوند اگر مقدار > 0 باشد
         .force("collide", d3.forceCollide().strength(.2).radius(function (d) {
-            return (size3(d.value) + 3);
+            return (size1(d.value) + 3);
         }).iterations(1)); // نیرویی که از همپوشانی دایره‌ها جلوگیری می‌کند
 
     // اعمال این نیروها به گره‌ها و به روزرسانی موقعیت آنها.
@@ -853,7 +849,7 @@ $title_json3 = json_encode($title3);
         });
 
     // تابع clicked
-    function clicked3(event, d, index) {
+    function clicked3(event, d) {
         event.preventDefault();
         const clickedNode = d3.select(this);
         const circle = clickedNode.select("circle");
@@ -879,14 +875,83 @@ $title_json3 = json_encode($title3);
 
         text.attr("transform", "translate(0," + (-initialSize3) + ")");
 
-        // افزودن یک عضو جدید به آرایه داده برای نگه داشتن وضعیت دایره
-        circleData3[index] = { clicks: clickCount3, title: titles3[index % titles3.length] };
+        const index = circleData3.findIndex(item => item.title === text.text());
+        if (index !== -1) {
+            circleData3[index].clicks++;
+        } else {
+            circleData3.push({ title: text.text(), clicks: 1 });
+        }
 
-        // افزایش شمارنده کلیک
+        if (circleData3[index].clicks > 8) {
+            circleData3[index].clicks = 8;
+        }
+
         clickCount3++;
     }
 
-    // تابع‌های حرکت مرتبط با drag
+    function removeLetters(inputString) {
+        return inputString.replace(/[^0-9]/g, '');
+    }
+
+    // تابع برای ارسال و نمایش داده
+    function submitData3() {
+        // تعریف متغیر formData
+        const formData3 = new FormData();
+
+        // یافتن div که داده‌ها در آن نمایش داده می‌شود
+        const dataDiv = document.getElementById("data3");
+        dataDiv.innerHTML = ""; // پاک کردن داده‌های قبلی
+
+        // حلقه از طریق آرایه circleData3
+        circleData3.forEach((item, index) => {
+            const title = removeLetters(item.title);
+            const clicks = item.clicks;
+
+            const dataString = `${removeLetters(title)} (${clicks})<br>`;
+            dataDiv.innerHTML += dataString;
+
+            formData3.append(`circleData[${index}][title]`, title);
+            formData3.append(`circleData[${index}][clicks]`, clicks);
+        });
+
+        fetch('formIndex.php?action=data3', {
+            method: 'POST',
+            body: formData3
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.text();
+            })
+            .then(data => {
+                //console.log(data);
+            })
+            .catch(error => {
+                console.error('There was an error!', error);
+            });
+    }
+
+    submitData3();
+
+    document.getElementById("submit-btn3").addEventListener("click", function(event) {
+        event.preventDefault();
+
+        const selectedCircle = d3.select(".selected circle");
+
+        if (!selectedCircle.empty()) {
+            const title = selectedCircle.node().parentNode.querySelector("text").textContent;
+            const clicks = parseInt(selectedCircle.attr("data-clicks"));
+
+            const infoDiv = document.getElementById("selectedCirclesList3");
+            infoDiv.innerHTML = "<li>" + title + ": " + clicks + "</li>";
+
+            const form3 = document.getElementById("myForm3");
+            form3.querySelector("#dataInput3").value = title + ": " + clicks;
+            form3.submit();
+        }
+    });
+
     function dragstarted(event, d) {
         if (!event.active) simulation3.alphaTarget(.03).restart();
         d.fx = d.x;
@@ -903,77 +968,10 @@ $title_json3 = json_encode($title3);
         d.fx = null;
         d.fy = null;
     }
-
-    function submitData3() {
-        // تعریف متغیر formData
-        const formData3 = new FormData();
-
-        // یافتن div که داده‌ها در آن نمایش داده می‌شود
-        const dataDiv = document.getElementById("data3");
-        dataDiv.innerHTML = ""; // پاک کردن داده‌های قبلی
-
-        // حلقه از طریق آرایه circleData3
-        circleData3.forEach((item, index) => {
-            if (item) {
-                const title = removeLetters(item.title);
-                const clicks = item.clicks;
-
-                const dataString = `${removeLetters(title)} (${clicks})<br>`;
-                dataDiv.innerHTML += dataString;
-
-                formData3.append(`circleData3[${index}][title]`, title);
-                formData3.append(`circleData3[${index}][clicks]`, clicks);
-            }
-        });
-
-        // ارسال درخواست fetch با استفاده از formData3 و ارسال به فایل PHP
-        fetch('formIndex.php?action=data3', {
-            method: 'POST',
-            body: formData3
-        })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.text(); // یا response.json() اگر می‌خواهید داده‌های JSON را بخوانید
-            })
-            .then(data => {
-                //console.log(data); // دریافت پاسخ از سرور
-                // انجام هر عملیاتی که نیاز به اطلاعات دریافتی از سرور دارد
-            })
-            .catch(error => {
-                console.error('There was an error!', error);
-            });
-    }
-
-    // فراخوانی اولیه تابع submitData3 برای نمایش داده هنگام بارگذاری صفحه
-    submitData3();
-
-    // زمانی که دکمه ارسال کلیک می‌شود
-    document.getElementById("submit-btn3").addEventListener("click", function(event) {
-        // جلوگیری از ارسال فرم به صورت پیش‌فرض
-        event.preventDefault();
-
-        // یافتن دایره‌ای که کاربر روی آن کلیک کرده است
-        const selectedCircle = d3.select(".selected circle");
-
-        // بررسی اینکه آیا دایره‌ای کلیک شده است یا خیر
-        if (!selectedCircle.empty()) {
-            // گرفتن عنوان و تعداد کلیک دایره‌ای که کاربر روی آن کلیک کرده است
-            const title = selectedCircle.node().parentNode.querySelector("text").textContent;
-            const clicks = parseInt(selectedCircle.attr("data-clicks"));
-
-            // افزودن اطلاعات دایره‌ای که کاربر روی آن کلیک کرده است به محتوای صفحه
-            const infoDiv = document.getElementById("selectedCirclesList3");
-            infoDiv.innerHTML = "<li>" + title + ": " + clicks + "</li>";
-
-            // ارسال فرم
-            const form3 = document.getElementById("myForm3");
-            form3.querySelector("#dataInput3").value = title + ": " + clicks;
-            form3.submit();
-        }
-    });
 </script>
+
+
+
 
 
 
