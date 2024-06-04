@@ -32,7 +32,7 @@ $title = array(
     29 => "تفریح"
 );
 $title_json = json_encode($title);
-
+$size1 = count($title);
 
 $title1 = array(
     0 => "دانش",
@@ -64,7 +64,7 @@ $title1 = array(
 
 $title_json1 = json_encode($title1);
 
-
+$size2 = count($title1);
 $title3 = array(
     0 => "محبت",
     1 => "عشق",
@@ -99,6 +99,7 @@ $title3 = array(
 );
 
 $title_json3 = json_encode($title3);
+$size3 = count($title3);
 ?>
 <style>
      .oval-shape {
@@ -345,7 +346,7 @@ $title_json3 = json_encode($title3);
         .attr("height", height);
 
     // داده‌های دایره‌ها
-    const data = Array.from({ length: 30 }, (_, i) => ({
+    const data = Array.from({ length: <?php echo $size1;?> }, (_, i) => ({
         region: "Region " + (i + 1),
         value: Math.floor(Math.random() * 1000000000)
     }));
@@ -570,7 +571,7 @@ $title_json3 = json_encode($title3);
         .attr("height", height2);
 
     // داده‌های دایره‌ها
-    const data1 = Array.from({ length: 25 }, (_, i) => ({
+    const data1 = Array.from({ length: <?php echo $size2;?> }, (_, i) => ({
         region: "Region " + (i + 1),
         value: Math.floor(Math.random() * 1000000000)
     }));
@@ -776,7 +777,7 @@ $title_json3 = json_encode($title3);
         .attr("height", height3);
 
     // داده‌های دایره‌ها
-    const data3 = Array.from({ length: 30 }, (_, i) => ({
+    const data3 = Array.from({ length: <?php echo $size3;?> }, (_, i) => ({
         region: "Region " + (i + 1),
         value: Math.floor(Math.random() * 1000000000)
     }));
