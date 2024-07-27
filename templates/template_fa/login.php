@@ -95,7 +95,7 @@
                                 </div>
 
                                 <div class="col-md-12 ">
-                                    <a href="/register/?action=add" class="btn btn-info shadow-radia btn-block " >
+                                    <a href="<?php echo RELA_DIR;?>register/?action=add" class="btn btn-info shadow-radia btn-block " >
                                         <i class="fa fa-save"></i>
                                         ثبت نام   </a>
 

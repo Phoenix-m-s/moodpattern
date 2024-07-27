@@ -14,7 +14,7 @@ define("ROOT_DIR",dirname(__FILE__) ."/");
 
 define("SUB_FOLDER","/moodpattern/");
 
-define("RELA_DIR","https://".$_SERVER['HTTP_HOST']."/".SUB_FOLDER."");
+define("RELA_DIR","http://".$_SERVER['HTTP_HOST']."/".SUB_FOLDER."");
 
 ///// Email Setting
 define("SMTP_USERNAME","support@moodupper.com");

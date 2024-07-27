@@ -240,8 +240,7 @@ $size3 = count($title3);
 
         <div class="row" dir="rtl">
             <div id="my_dataviz"></div>
-
-            <div class="col-md-3 col-xl-3 center-mobile mx-auto my-auto mt-5">
+            <div class="col-md-3 col-xl-3 center-mobile mx-auto ">
                 <div class="card bg-body-tertiary">
                     <div class="card-header text-center">
                         <h6>اطلاعات دایره‌های انتخاب شده:</h6>
@@ -275,7 +274,7 @@ $size3 = count($title3);
 
         <div class="row" dir="rtl">
             <div id="my_dataviz1"></div>
-            <div class="col-md-3 col-xl-3 center-mobile mx-auto my-auto mt-5">
+            <div class="col-md-3 col-xl-3 center-mobile mx-auto my-auto ">
                 <div class="card bg-body-tertiary">
                     <div class="card-header text-center">
                         <h6>اطلاعات دایره‌های انتخاب شده:</h6>
@@ -310,7 +309,7 @@ $size3 = count($title3);
 
             <div id="my_dataviz3"></div>
 
-            <div class="col-md-3 col-xl-3 center-mobile mx-auto my-auto mt-5">
+            <div class="col-md-3 col-xl-3 center-mobile mx-auto my-auto ">
                 <div class="card bg-body-tertiary">
                     <div class="card-header text-center">
                         <h6>اطلاعات دایره‌های انتخاب شده:</h6>
